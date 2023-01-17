@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.RegistrazioneController">
+   <children>
+      <TextField fx:id="nome" layoutX="56.0" layoutY="140.0" promptText="Nome" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cognome" layoutX="384.0" layoutY="140.0" promptText="Cognome" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="data" editable="false" layoutX="715.0" layoutY="140.0" prefHeight="46.0" prefWidth="230.0" promptText="GG/MM/AAAA" />
+      <TextField fx:id="residenza" layoutX="59.0" layoutY="213.0" prefHeight="46.0" prefWidth="891.0" promptText="Indirizzo" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="email" layoutX="59.0" layoutY="293.0" prefHeight="46.0" prefWidth="491.0" promptText="Email" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="password" layoutX="56.0" layoutY="359.0" promptText="Password" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="confPassword" layoutX="401.0" layoutY="359.0" promptText="Conferma Password" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+      <Button fx:id="accedi" layoutX="62.0" layoutY="472.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Conferma" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="annulla" layoutX="384.0" layoutY="472.0" mnemonicParsing="false" onAction="#annullaRegistrazione" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: red; -fx-border-radius: 30;" text="Annulla" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <TextField fx:id="telefono" alignment="CENTER" layoutX="592.0" layoutY="293.0" prefHeight="46.0" prefWidth="230.0" promptText="Cellulare" style="-fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

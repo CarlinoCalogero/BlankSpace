@@ -1,5 +1,6 @@
 package it.univaq.disim.oop.blankspace;
 
+import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,12 +15,12 @@ public class HelloWorld extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Scene scene = new Scene(new StackPane(l), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+		try {
+			ViewDispacher.getInstance().loadLogIn(stage);
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
 		
 	}
 
