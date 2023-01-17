@@ -1,4 +1,4 @@
-package it.univaq.disim.oop.projectskeleton;
+package it.univaq.disim.oop.blankspace;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
