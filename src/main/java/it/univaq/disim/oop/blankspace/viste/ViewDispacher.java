@@ -40,7 +40,7 @@ public class ViewDispacher {
 		try {
 			View<T> view = caricaVista(nomeVista);
 			DataInitalizable<T> controller = view.getController();
-			controller.initialize(dato);
+			controller.initializeData(dato);
 			Parent	p = view.getView();
 			this.pane.setCenter(p);
 		} catch (Exception e) {

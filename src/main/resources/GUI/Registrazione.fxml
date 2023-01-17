@@ -40,7 +40,7 @@
             <Font name="Arial" size="25.0" />
          </font>
       </TextField>
-      <Button fx:id="accedi" layoutX="62.0" layoutY="472.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Conferma" textFill="WHITE">
+      <Button fx:id="registra" layoutX="62.0" layoutY="472.0" mnemonicParsing="false" onAction="#registraUtente" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Conferma" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>

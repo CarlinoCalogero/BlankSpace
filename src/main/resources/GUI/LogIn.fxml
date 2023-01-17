@@ -12,6 +12,11 @@
    <center>
       <VBox fx:id="vbox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Label fx:id="errore" prefHeight="30.0" prefWidth="709.0" style="-fx-text-fill: #05a856;" text="Email o Password errata" visible="false">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
             <TextField fx:id="email" alignment="CENTER" promptText="Email" style="-fx-border-radius: 20;">
                <font>
                   <Font name="Arial" size="25.0" />
@@ -28,7 +33,7 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="accedi" mnemonicParsing="false" prefHeight="25.0" prefWidth="440.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Accedi" textFill="WHITE">
+            <Button fx:id="accedi" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="440.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Accedi" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
