@@ -3,7 +3,7 @@ package it.univaq.disim.oop.blankspace.domain;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class PacchettoProdotti {
+public class PacchettoProdotti implements Comparable<PacchettoProdotti> {
 
 	private Map<Integer, Prodotto> insiemeProdotti = new TreeMap<>();
 
@@ -37,5 +37,23 @@ public class PacchettoProdotti {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	@Override
+	public int compareTo(PacchettoProdotti o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
