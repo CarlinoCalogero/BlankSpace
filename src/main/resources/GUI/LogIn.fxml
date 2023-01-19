@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -30,27 +31,37 @@
                   <Font name="Arial" size="25.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="50.0" />
+                  <Insets />
                </VBox.margin>
             </TextField>
-            <Button fx:id="accedi" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="440.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Accedi" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="registrazione" mnemonicParsing="false" onAction="#loadRegistrazione" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Registrati" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="20.0" />
-               </font>
-            </Button>
             <Label style="-fx-text-fill: #05a856;" text="Password dimenticata?">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </Label>
+            <HBox>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="accedi" mnemonicParsing="false" onAction="#logIn" prefHeight="52.0" prefWidth="242.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Accedi" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="registrazione" mnemonicParsing="false" onAction="#loadRegistrazione" prefHeight="51.0" prefWidth="242.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Registrati" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             <Label fx:id="logGS" contentDisplay="CENTER" onMouseClicked="#logInAdmin" style="-fx-text-fill: #05a856;" text="Sei un Gestore di Sistema?">
                <font>
                   <Font name="System Bold" size="20.0" />
@@ -58,6 +69,9 @@
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Label>
          </children>
          <padding>
