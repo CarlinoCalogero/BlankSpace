@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioUtente;
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -28,12 +29,16 @@ public class LogInController implements Initializable,DataInitalizable<Persona>{
 	
 	public void logIn() {
 		Persona logged = servizioUtente.getUtente(email.getText(), password.getText());
-		if(logged != null) {
-			dispatcher.renderVista("Home", logged);
-		} else {
-			errore.setText("Email o Password errata");
+		String vista = "";
+		if(logged == null) {
+			this.errore.setText("Email o Password Errati");
+			return;
 		}
-		errore.setVisible(true);
+		if(logged instanceof Utente)
+			vista = "Home";
+		if(logged instanceof GestoreLuogoDiRitrovo)
+			vista = "HomeGLR";
+		dispatcher.renderVista(vista, logged);
 	}
 	public void logInAdmin() {
 		dispatcher.renderVista("LogInAdmins", null);
