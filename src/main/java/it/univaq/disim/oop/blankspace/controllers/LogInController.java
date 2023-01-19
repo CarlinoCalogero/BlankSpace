@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class LogInController implements Initializable,DataInitalizable<Persona>{
-	private ViewDispacher dispacher = ViewDispacher.getInstance();
+	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private ServizioUtente servizioUtente = BusinessFactory.getImplementation().getServizioUtente();
 	@FXML
 	private TextField email, password;
@@ -24,17 +24,19 @@ public class LogInController implements Initializable,DataInitalizable<Persona>{
 	private Label errore;
 	@FXML
 	private Button accedi;
+
 	
 	public void logIn() {
 		Utente logged = servizioUtente.getUtente(email.getText(), password.getText());
-		if(logged != null)
-			errore.setText("Logged: "+logged.getNome());
-		else
+		if(logged != null) {
+			dispatcher.renderVista("Home", logged);
+		} else {
 			errore.setText("Email o Password errata");
+		}
 		errore.setVisible(true);
 	}
 	public void loadRegistrazione() {
-		dispacher.renderVista("Registrazione", null);
+		dispatcher.renderVista("Registrazione", null);
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
