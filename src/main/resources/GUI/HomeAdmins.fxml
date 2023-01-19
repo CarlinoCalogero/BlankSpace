@@ -53,14 +53,6 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="227.0" layoutY="10.0">
                <children>
-                  <HBox alignment="TOP_RIGHT" prefHeight="11.0" prefWidth="300.0" VBox.vgrow="NEVER">
-                     <children>
-                        <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="-30.0" />
-                     </VBox.margin>
-                  </HBox>
                   <ImageView fx:id="addProdotto" fitHeight="305.0" fitWidth="300.0" onMouseClicked="#addProdotto" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
@@ -79,4 +71,18 @@
          </children>
       </HBox>
    </center>
+   <top>
+      <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0">
+         <children>
+            <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <VBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

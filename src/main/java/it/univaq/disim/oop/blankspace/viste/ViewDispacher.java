@@ -1,8 +1,11 @@
 package it.univaq.disim.oop.blankspace.viste;
 
+import java.io.File;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -24,6 +27,7 @@ public class ViewDispacher {
 		try {		
 			this.stage = s;
 			this.stage.setTitle("Progetto Spesa: BlankSpace");
+			this.stage.getIcons().add(new Image(File.separator + "immagini" + File.separator + "logo.jpg"));
 			this.stage.setResizable(false);
 			Parent vista = caricaVista("LogIn").getView();
 			this.pane = (BorderPane)vista;
