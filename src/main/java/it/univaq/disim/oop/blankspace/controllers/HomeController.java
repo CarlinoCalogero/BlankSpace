@@ -8,13 +8,15 @@ import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 
 public class HomeController implements Initializable, DataInitalizable<Utente>{
 	
 	private Utente utente;
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
-
+	@FXML
+	private Button esciBottone;
 	@FXML
 	private ImageView datiPersonali;
 	
@@ -47,5 +49,8 @@ public class HomeController implements Initializable, DataInitalizable<Utente>{
 	private void accediAreaMieiOrdini() {
 		dispatcher.renderVista("MieiOrdini", utente);
 	}
-
+	@FXML
+	private void logout() {
+		dispatcher.renderVista("LogIn", null);
+	}
 }

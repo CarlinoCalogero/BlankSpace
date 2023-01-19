@@ -48,5 +48,8 @@ public class HomeGLRController implements Initializable, DataInitalizable<Gestor
 	private void selezionaUtente() {
 		dispatcher.renderVista("CercaUtentePerOrdine", this.utente);
 	}
-
+	@FXML
+	private void logout() {
+		dispatcher.renderVista("LogIn", null);
+	}
 }
