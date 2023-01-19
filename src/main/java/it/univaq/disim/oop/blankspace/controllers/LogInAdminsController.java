@@ -29,7 +29,7 @@ public class LogInAdminsController implements Initializable,DataInitalizable<Per
 	public void logIn() {
 		GestoreSistema logged = servizioUtente.getGestoreSistema(nickname.getText(), password.getText());
 		if(logged != null) {
-			errore.setText("HelloAdmin");
+			dispatcher.renderVista("HomeAdmins", logged);
 		} else {
 			errore.setText("Email o Password errata");
 		}
