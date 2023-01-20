@@ -4,9 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
-import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.fxml.FXML;
@@ -43,7 +40,6 @@ public class HomeGLRController implements Initializable, DataInitalizable<Gestor
 	
 	@FXML
 	private void accediAreaOrdini() {
-		System.out.println("OK");
 		dispatcher.renderVista("OrdiniGLR", utente);
 	}
 	
