@@ -13,7 +13,7 @@ public class ProdottoRichiesto extends Prodotto {
 
 	public ProdottoRichiesto(Integer id, String nome, String descrizione, Categoria categoria, Negozio negozio,
 			Double prezzo, File allegato, Boolean medicinale) {
-		super(id, nome, descrizione, categoria, negozio, prezzo);
+		super(nome, descrizione, categoria, negozio, prezzo);
 		this.allegato = allegato;
 		this.medicinale = medicinale;
 	}

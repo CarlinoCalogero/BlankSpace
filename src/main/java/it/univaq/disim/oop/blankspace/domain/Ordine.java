@@ -1,10 +1,10 @@
 package it.univaq.disim.oop.blankspace.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Ordine implements Comparable<Ordine> {
 
@@ -15,7 +15,11 @@ public class Ordine implements Comparable<Ordine> {
 	private Date dataOrdinazione;
 	private Double totaleSpeso;
 	private StatoOrdine stato;
-	private List<ProdottoRichiesto> listProdottoRichiesti = new ArrayList<>();
+	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
+
+	public Ordine() {
+
+	}
 
 	public Ordine(Integer id, Date dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
 		this.id = id;
@@ -66,8 +70,9 @@ public class Ordine implements Comparable<Ordine> {
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (obj == null | !(obj instanceof Ordine))
+			return false;
+		return this.id == ((Ordine) obj).id;
 	}
 
 	@Override
@@ -82,18 +87,18 @@ public class Ordine implements Comparable<Ordine> {
 		return 0;
 	}
 
-	public List<ProdottoRichiesto> getListProdottoRichiesti() {
-		return listProdottoRichiesti;
+	public Set<ProdottoConQuantità> getListProdotti() {
+		return new HashSet<>(listProdotti);
 	}
 
-	public void setListProdottoRichiesti(List<ProdottoRichiesto> listProdottoRichiesti) {
-		this.listProdottoRichiesti = listProdottoRichiesti;
+	public void setListProdotti(Set<ProdottoConQuantità> listProdotti) {
+		this.listProdotti = listProdotti;
 	}
 
-	public boolean aggiungiProdottoRichiesto(ProdottoRichiesto prodotto) {
-		if (listProdottoRichiesti.contains(prodotto))
+	public boolean aggiungiProdottoRichiesto(ProdottoConQuantità prodotto) {
+		if (listProdotti.contains(prodotto))
 			return false;
-		listProdottoRichiesti.add(prodotto);
+		listProdotti.add(prodotto);
 		return true;
 	}
 

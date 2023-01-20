@@ -3,8 +3,12 @@ package it.univaq.disim.oop.blankspace.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import it.univaq.disim.oop.blankspace.business.BusinessFactory;
+import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
+import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Persona;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -16,10 +20,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class RichiestaProdottoController implements Initializable, DataInitalizable<Persona> {
+public class RichiestaProdottoController
+		implements Initializable, DataInitalizable<WrapperInterVista<Persona, Ordine>> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private Persona persona;
+	private Ordine ordine;
+
+	private ServizioOrdine servizioOrdine = BusinessFactory.getImplementation().getServizioOrdine();
 
 	@FXML
 	private Button richiediProdottoButton;
@@ -68,15 +76,18 @@ public class RichiestaProdottoController implements Initializable, DataInitaliza
 		prodotto.setMedicinale(false);
 		prodotto.setNegozio(negozioComboBox.getValue());
 		prodotto.setNome(nomeProdottoTextField.getText());
-		// TODO add to Order
+		this.ordine.aggiungiProdottoRichiesto(new ProdottoConQuantità(prodotto, quantitaTextField.getText()));
+		servizioOrdine.aggiornaOrdine(ordine);
+		dispatcher.renderVista("Ordine", new WrapperInterVista<Persona, Ordine>(persona, ordine));
 	}
 
 	public void annullaRichiestaProdottoAction() {
-		dispatcher.renderVista("Ordine", persona);
+		dispatcher.renderVista("Ordine", new WrapperInterVista<Persona, Ordine>(persona, ordine));
 	}
 
-	public void initializeData(Persona persona) {
-		this.persona = persona;
+	public void initializeData(WrapperInterVista<Persona, Ordine> wrapper) {
+		this.persona = wrapper.getDato1();
+		this.ordine = wrapper.getDato2();
 	}
 
 	public void yesIsSelectedAction() {

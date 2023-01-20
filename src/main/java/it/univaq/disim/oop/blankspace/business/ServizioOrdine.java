@@ -1,10 +1,11 @@
 package it.univaq.disim.oop.blankspace.business;
 
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.Ordine;
 
 public interface ServizioOrdine {
 
-	public boolean creaOrdine();
-	
-	public boolean aggiungiProdottoConQuantità(ProdottoConQuantità pcq);
+	public Ordine creaOrdine(Ordine ordine);
+
+	public void aggiornaOrdine(Ordine ordine);
+
 }

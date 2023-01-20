@@ -12,7 +12,7 @@ public class Prodotto implements Comparable<Prodotto> {
 
 	}
 
-	public Prodotto(Integer id, String nome, String descrizione, Categoria categoria, Negozio negozio, Double prezzo) {
+	public Prodotto(String nome, String descrizione, Categoria categoria, Negozio negozio, Double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.categoria = categoria;

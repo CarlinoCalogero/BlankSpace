@@ -10,4 +10,6 @@ public abstract class BusinessFactory {
 	public abstract ServizioUtente getServizioUtente();
 
 	public abstract ProdottiService getProdottiService();
+
+	public abstract ServizioOrdine getServizioOrdine();
 }
