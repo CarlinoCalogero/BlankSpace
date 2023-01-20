@@ -7,6 +7,10 @@ public class ProdottoRichiesto extends Prodotto {
 	private File allegato;
 	private Boolean medicinale;
 
+	public ProdottoRichiesto() {
+
+	}
+
 	public ProdottoRichiesto(Integer id, String nome, String descrizione, Categoria categoria, Negozio negozio,
 			Double prezzo, File allegato, Boolean medicinale) {
 		super(id, nome, descrizione, categoria, negozio, prezzo);
