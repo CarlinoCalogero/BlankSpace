@@ -1,7 +1,6 @@
 package it.univaq.disim.oop.blankspace.domain;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
