@@ -14,7 +14,7 @@ public class Ordine implements Comparable<Ordine> {
 
 	private Integer id;
 	private LocalDate dataOrdinazione;
-	private Double totaleSpeso;
+	private Double totaleSpeso = 0.0;
 	private StatoOrdine stato;
 	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
 

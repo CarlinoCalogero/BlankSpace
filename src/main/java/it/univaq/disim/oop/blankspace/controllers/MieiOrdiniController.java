@@ -1,14 +1,14 @@
 package it.univaq.disim.oop.blankspace.controllers;
 
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -79,10 +79,17 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
 		statoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, StatoOrdine>("stato"));
 		totaleColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
-			String totale = param.getValue().getTotaleSpeso() + "€";
+
+			DecimalFormat df = new DecimalFormat("#.##");
+			df.setRoundingMode(RoundingMode.FLOOR);
+			String totale= df.format(param.getValue().getTotaleSpeso()) + "€";
 			return new SimpleObjectProperty<String>(totale);
 		});
-		indirizzoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, String>("residenza"));
+		/*
+		 * indirizzoColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param)
+		 * -> { String residenza = utente.getResidenza(); return new
+		 * SimpleObjectProperty<String>(residenza); });
+		 */
 		dataColonna.setCellValueFactory(new PropertyValueFactory<Ordine, LocalDate>("dataOrdinazione"));
 		modificaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Modifica");
@@ -104,8 +111,9 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 	@Override
 	public void initializeData(Utente utente) {
 		this.utente = utente;
-		
-		ObservableList<Ordine> ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromUtente(utente).values());
+
+		ObservableList<Ordine> ordiniData = FXCollections
+				.observableArrayList(servizioOrdine.getOrdiniFromUtente(utente).values());
 		ordiniTabella.setItems((ObservableList<Ordine>) ordiniData);
 	}
 
