@@ -42,7 +42,7 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 
 	@FXML
 	private void accediAreaOrdine() {
-		System.out.println("Accesso: Area ordine");
+		dispatcher.renderVista("Ordine", utente);
 	}
 
 	@FXML
