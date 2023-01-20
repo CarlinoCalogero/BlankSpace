@@ -16,29 +16,28 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.CreaPacchettoProdottoController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="49.0" prefWidth="779.0">
+            <VBox prefHeight="50.0" prefWidth="986.0">
                <children>
                   <Label prefHeight="66.0" prefWidth="581.0" text="Crea un nuovo pacchetto personalizzato" textFill="#00000095">
                      <font>
                         <Font size="31.0" />
                      </font>
                   </Label>
-                  <Separator maxWidth="840.0" prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </Separator>
+                  <Separator maxWidth="840.0" prefWidth="200.0" />
                </children>
-               <HBox.margin>
-                  <Insets left="120.0" right="40.0" />
-               </HBox.margin>
             </VBox>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
+            <Button fx:id="logoutButton" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="40.0" prefWidth="80.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <HBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
          </children>
          <BorderPane.margin>
-            <Insets top="20.0" />
+            <Insets />
          </BorderPane.margin>
       </HBox>
    </top>
@@ -59,7 +58,7 @@
                      <children>
                         <HBox prefHeight="49.0" prefWidth="602.0">
                            <children>
-                              <TextField fx:id="barraDiRicerca" alignment="CENTER" onAction="#cerca" prefHeight="31.0" prefWidth="525.0" promptText="Cerca" styleClass="searchbar" stylesheets="@../style/searchbar.css">
+                              <TextField fx:id="barraDiRicerca" alignment="CENTER" onAction="#cerca" prefHeight="31.0" prefWidth="478.0" promptText="Cerca" styleClass="searchbar" stylesheets="@../style/searchbar.css">
                                  <HBox.margin>
                                     <Insets right="5.0" />
                                  </HBox.margin>
@@ -103,7 +102,10 @@
                   </VBox>
                   <VBox prefHeight="361.0" prefWidth="208.0">
                      <children>
-                        <Label prefHeight="50.0" prefWidth="203.0" text="Clicca per aggiungere" />
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="203.0" text="Clicca per aggiungere">
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding></Label>
                         <TableView fx:id="catalogoTabella" prefHeight="262.0" prefWidth="203.0" stylesheets="@../style/table.css">
                            <columns>
                               <TableColumn fx:id="negozioCatalogoColonna" prefWidth="98.39996337890625" text="Negozio" />
@@ -127,6 +129,9 @@
                </children>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
       </AnchorPane>
    </center>
 </BorderPane>

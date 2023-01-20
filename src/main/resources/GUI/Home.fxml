@@ -16,45 +16,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="602.0" prefWidth="235.0">
-                     <children>
-                        <ImageView fx:id="datiPersonali1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icone/datipersonaliCuttedSporco.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="34.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="100.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
-                     <children>
-                        <ImageView fx:id="ordina1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaOrdine" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icone/ordinaCuttedSporco.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Ordina" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="34.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0">
+                  <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0" prefWidth="235.0">
                      <children>
                         <ImageView fx:id="pacchetti" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPacchetti" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -93,7 +55,7 @@
    <top>
       <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+            <Button fx:id="esciBottone" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#esci" prefHeight="40.0" prefWidth="80.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
                <VBox.margin>
                   <Insets right="20.0" top="10.0" />
                </VBox.margin>
@@ -101,6 +63,44 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="602.0" prefWidth="235.0">
+                     <children>
+                        <ImageView fx:id="datiPersonali1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/datipersonaliCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
+                     <children>
+                        <ImageView fx:id="ordina1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaOrdine" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/ordinaCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Ordina" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </top>

@@ -61,7 +61,7 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 	}
 
 	@FXML
-	private void logout() {
+	private void esci() {
 		dispatcher.renderVista("LogIn", null);
 	}
 

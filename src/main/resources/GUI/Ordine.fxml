@@ -43,11 +43,14 @@
                   </Separator>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="178.0">
-               <children>
-                  <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#esci" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
-               </children>
-            </VBox>
+            <Button fx:id="esciBottone" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#esci" prefHeight="40.0" prefWidth="80.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </top>

@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.AggiungiProdottoAlSistemaController">
    <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="94.0" prefWidth="1034.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <VBox prefHeight="100.0" prefWidth="986.0">
                <children>
@@ -34,27 +34,17 @@
                   </Separator>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="189.0">
-               <children>
-                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="40.0" />
-               </padding>
+            <Button fx:id="logoutButton" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="40.0" prefWidth="80.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets bottom="43.0" right="20.0" top="10.0" />
                </HBox.margin>
-            </VBox>
+            </Button>
          </children>
          <BorderPane.margin>
-            <Insets top="30.0" />
+            <Insets />
          </BorderPane.margin>
       </HBox>
    </top>

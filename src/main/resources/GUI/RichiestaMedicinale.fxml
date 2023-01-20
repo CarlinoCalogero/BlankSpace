@@ -24,7 +24,7 @@
             <Font size="25.0" />
          </font>
       </Button>
-      <HBox layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="985.0" AnchorPane.topAnchor="30.0">
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="985.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="986.0">
                <children>
@@ -43,11 +43,14 @@
                   </Separator>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="178.0">
-               <children>
-                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
-               </children>
-            </VBox>
+            <Button fx:id="logoutButton" maxHeight="40.0" maxWidth="80.0" minHeight="40.0" minWidth="80.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="40.0" prefWidth="80.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <HBox layoutX="54.0" layoutY="119.0" prefHeight="34.0" prefWidth="505.0">

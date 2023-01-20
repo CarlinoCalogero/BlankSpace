@@ -99,7 +99,7 @@ public class RichiestaProdottoController
 
 		if (yesCheckBox.isSelected()) {
 			noCheckBox.setSelected(false);
-			dispatcher.renderVista("RichiestaMedicinale",this.utente);
+			dispatcher.renderVista("RichiestaMedicinale", new WrapperInterVista<Utente,GestoreLuogoDiRitrovo, Ordine, Prodotto>(utente, glr, ordine, null));
 		} else {// if user clicks on already selected CheckBox
 			noCheckBox.setSelected(true);
 			noIsSelectedAction();

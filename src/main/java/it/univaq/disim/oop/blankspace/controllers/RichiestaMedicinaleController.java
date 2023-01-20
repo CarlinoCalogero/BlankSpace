@@ -3,8 +3,12 @@ package it.univaq.disim.oop.blankspace.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
+import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Persona;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
+import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.fxml.FXML;
@@ -13,10 +17,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 
-public class RichiestaMedicinaleController implements Initializable, DataInitalizable<Persona> {
+public class RichiestaMedicinaleController implements Initializable, DataInitalizable<WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
-	private Persona persona;
+	private Utente utente;
+	private GestoreLuogoDiRitrovo glr;
+	private Ordine ordine;
 
 	@FXML
 	private Button richiediProdottoButton;
@@ -56,11 +62,13 @@ public class RichiestaMedicinaleController implements Initializable, DataInitali
 	}
 
 	public void annullaRichiestaProdottoAction() {
-		dispatcher.renderVista("Ordine", persona);
+		dispatcher.renderVista("Ordine", new WrapperInterVista<Utente,GestoreLuogoDiRitrovo,Ordine,Prodotto>(this.utente,this.glr,ordine,null));
 	}
 
-	public void initializeData(Persona persona) {
-		this.persona = persona;
+	public void initializeData(WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto> wrapper) {
+		this.utente = wrapper.getDato1();
+		this.glr = wrapper.getDato2();
+		this.ordine = wrapper.getDato3();
 	}
 
 	public void yesIsSelectedAction() {
@@ -82,7 +90,7 @@ public class RichiestaMedicinaleController implements Initializable, DataInitali
 
 		if (noCheckBox.isSelected()) {
 			yesCheckBox.setSelected(false);
-			dispatcher.renderVista("RichiestaProdotto", persona);
+			dispatcher.renderVista("RichiestaProdotto", new WrapperInterVista<Utente,GestoreLuogoDiRitrovo, Ordine, Prodotto>(utente, glr, ordine, null));
 		} else {// if user clicks on already selected CheckBox
 			yesCheckBox.setSelected(true);
 			yesIsSelectedAction();
