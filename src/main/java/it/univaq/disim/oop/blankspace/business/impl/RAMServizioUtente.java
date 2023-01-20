@@ -40,13 +40,11 @@ public class RAMServizioUtente implements ServizioUtente{
 	}
 	@Override
 	public boolean registraGestoreLuogoRitrovo(GestoreLuogoDiRitrovo glr) {
-		// TODO Auto-generated method stub
-		return false;
+		return utenti.put(id++, glr) == null;
 	}
 	@Override
 	public boolean registraAddettoCompere(AddettoCompere addetto) {
-		// TODO Auto-generated method stub
-		return false;
+		return utenti.put(id++, addetto) == null;
 	}
 	@Override
 	public Map<Integer, Utente> getAllUtenti() {

@@ -39,12 +39,12 @@ public class HomeAdminsController implements Initializable, DataInitalizable<Ges
 
 	@FXML
 	private void addAddetto() {
-		System.out.println("Aggiungi Addetto...");
+		dispatcher.renderVista("RegistrazioneAddetto", this.admin);
 	}
 
 	@FXML
 	private void addGestoreLuogoDiRitrovo() {
-		System.out.println("Aggiungi GLR...");
+		dispatcher.renderVista("RegistrazioneGLR", this.admin);
 	}
 
 	@FXML
