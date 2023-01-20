@@ -10,7 +10,6 @@ import it.univaq.disim.oop.blankspace.domain.Categoria;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
@@ -135,6 +134,11 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 			// TODO: settare la funzione del bottone
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
+		});
+		
+		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+			if(param.getValue().getProdotto() instanceof ProdottoRichiesto) return new SimpleObjectProperty<String>("Si");
+			return new SimpleObjectProperty<String>("No");
 		});
 		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Categoria> param) -> {
 			return new SimpleObjectProperty<Categoria>(param.getValue().getProdotto().getCategoria());

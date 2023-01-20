@@ -94,6 +94,9 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 		});
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
+			button.setOnAction(e -> {
+				servizioOrdine.cancellaOrdine(param.getValue().getId());
+			});
 			return new SimpleObjectProperty<Button>(button);
 		});
 	}
