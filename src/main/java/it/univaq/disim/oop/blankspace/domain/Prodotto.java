@@ -1,13 +1,17 @@
 package it.univaq.disim.oop.blankspace.domain;
 
-public class Prodotto implements Comparable<Prodotto>{
+public class Prodotto implements Comparable<Prodotto> {
 
 	private Integer id;
 	private String nome;
 	private String descrizione;
 	private Categoria categoria;
 	private Negozio negozio;
-	private Double prezzo;
+	private Double prezzo = 0.0;
+
+	public Prodotto() {
+
+	}
 
 	public Prodotto(Integer id, String nome, String descrizione, Categoria categoria, Negozio negozio, Double prezzo) {
 		this.id = id;
@@ -68,15 +72,18 @@ public class Prodotto implements Comparable<Prodotto>{
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (obj == null || !(obj instanceof Prodotto))
+			return false;
+		Prodotto prod = (Prodotto) obj;
+		return this.id == prod.id;
 	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-	
+
 	@Override
 	public int compareTo(Prodotto o) {
 		// TODO Auto-generated method stub

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import it.univaq.disim.oop.blankspace.domain.Categoria;
 import it.univaq.disim.oop.blankspace.domain.GestoreSistema;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.control.TextField;
 public class AggiungiProdottoAlSistemaController implements Initializable, DataInitalizable<GestoreSistema> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
+	private GestoreSistema admin;
 
 	@FXML
 	private Button logoutButton;
@@ -48,17 +50,28 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 	}
 
 	public void aggiungiProdottoAction() {
+		Prodotto prodotto = new Prodotto();
+		prodotto.setCategoria(categoriaComboBox.getValue());
+		prodotto.setDescrizione(descrizioneProdottoTextArea.getText());
+		prodotto.setNegozio(negozioComboBox.getValue());
+		prodotto.setNome(nomeProdottoTextField.getText());
+		// price
+		// add to business factory
 
 	}
 
 	public void annullaAgguntaProdottoAction() {
-
+		dispatcher.renderVista("HomeAdmins", this.admin);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		categoriaComboBox.getItems().addAll(Categoria.values());
 		negozioComboBox.getItems().addAll(Negozio.values());
+	}
+
+	public void initializeData(GestoreSistema admin) {
+		this.admin = admin;
 	}
 
 }

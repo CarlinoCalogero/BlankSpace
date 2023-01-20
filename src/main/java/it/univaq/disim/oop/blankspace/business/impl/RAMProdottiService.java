@@ -11,11 +11,11 @@ public class RAMProdottiService implements ProdottiService {
 	private Map<Integer, Prodotto> prodotti = new HashMap<>();
 
 	private static int id = 0;
-	
+
 	@Override
 	public boolean aggiungiProdotto(Prodotto prodotto) {
-		// TODO Auto-generated method stub
-		return false;
+		prodotto.setId(id);
+		return prodotti.put(id++, prodotto) == null;
 	}
 
 	@Override
