@@ -19,12 +19,13 @@ public class RAMServizioUtente implements ServizioUtente {
 
 	public RAMServizioUtente() {
 		GestoreSistema gs = new GestoreSistema("admin", "admin");
-		Persona ut1 = new Utente("Mikael", "Pikkirilli", LocalDate.now(), "mikael@pik.it", "0000000000", "mik", "void");
-		Persona ut2 = new Utente("Amico Immaginario", "Mikki", LocalDate.now(), "mikki@pik.it", "0000000000", "mikki",
+		Persona ut1 = new Utente(id, "Mikael", "Pikkirilli", LocalDate.now(), "mikael@pik.it", "0000000000", "mik",
 				"void");
+		Persona ut2 = new Utente(id, "Amico Immaginario", "Mikki", LocalDate.now(), "mikki@pik.it", "0000000000",
+				"mikki", "void");
 		Persona glr1 = new GestoreLuogoDiRitrovo("Calogero", "Carlino", LocalDate.now(), "calogero@carlino.gov",
 				"1111111111", "calcarl", "BlastBar", "void");
-		Persona ut3 = new Utente("a", "a", LocalDate.now(), "a", "0000000000", "a", "void");
+		Persona ut3 = new Utente(id, "a", "a", LocalDate.now(), "a", "0000000000", "a", "void");
 		utenti.put(id++, ut1);
 		utenti.put(id++, ut2);
 		utenti.put(id++, ut3);
@@ -34,8 +35,10 @@ public class RAMServizioUtente implements ServizioUtente {
 
 	@Override
 	public boolean registraUtente(Utente u) {
-		if (!this.utenti.containsValue(u))
+		if (!this.utenti.containsValue(u)) {
+			u.setId(id);
 			return this.utenti.put(id++, u) == null;
+		}
 		return false;
 	}
 
@@ -94,6 +97,11 @@ public class RAMServizioUtente implements ServizioUtente {
 			if (gs.getNickname().equalsIgnoreCase(nickname) && gs.getPassword().equals(password))
 				return gs;
 		return null;
+	}
+
+	@Override
+	public void aggiornaUtente(Utente utente) {
+		utenti.put(utente.getId(), utente);
 	}
 
 }

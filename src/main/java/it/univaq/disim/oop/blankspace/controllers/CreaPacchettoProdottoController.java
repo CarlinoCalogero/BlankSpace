@@ -5,12 +5,13 @@ import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ProdottiService;
+import it.univaq.disim.oop.blankspace.business.ServizioUtente;
 import it.univaq.disim.oop.blankspace.domain.Categoria;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
+import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.beans.property.SimpleObjectProperty;
@@ -29,13 +30,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CreaPacchettoProdottoController
-		implements Initializable, DataInitalizable<WrapperInterVista<Persona, PacchettoProdotti, Object, Object>> {
+		implements Initializable, DataInitalizable<WrapperInterVista<Utente, PacchettoProdotti, Object, Object>> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
-	private Persona persona;
+	private Utente utente;
 	private PacchettoProdotti pacchettoProdotti;
 
 	private ProdottiService prodottiService = BusinessFactory.getImplementation().getProdottiService();
+	private ServizioUtente servizioUtente = BusinessFactory.getImplementation().getServizioUtente();
 
 	@FXML
 	private TextField nomePacchettoTextField;
@@ -103,8 +105,8 @@ public class CreaPacchettoProdottoController
 					return;
 				this.pacchettoProdotti.aggiungiProdottoAlPacchetto(row.getItem());
 				dispatcher.renderVista("CreaPacchettoProdotto",
-						new WrapperInterVista<Persona, PacchettoProdotti, Object, Object>(persona,
-								this.pacchettoProdotti, null, null));
+						new WrapperInterVista<Utente, PacchettoProdotti, Object, Object>(utente, this.pacchettoProdotti,
+								null, null));
 
 			});
 			return row;
@@ -138,8 +140,8 @@ public class CreaPacchettoProdottoController
 			button.setOnAction((ActionEvent e) -> {
 				this.pacchettoProdotti.rimuoviProdottoAlPacchetto(param.getValue());
 				dispatcher.renderVista("CreaPacchettoProdotto",
-						new WrapperInterVista<Persona, PacchettoProdotti, Object, Object>(persona,
-								this.pacchettoProdotti, null, null));
+						new WrapperInterVista<Utente, PacchettoProdotti, Object, Object>(utente, this.pacchettoProdotti,
+								null, null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);
@@ -152,8 +154,8 @@ public class CreaPacchettoProdottoController
 	}
 
 	@Override
-	public void initializeData(WrapperInterVista<Persona, PacchettoProdotti, Object, Object> wrapper) {
-		this.persona = wrapper.getDato1();
+	public void initializeData(WrapperInterVista<Utente, PacchettoProdotti, Object, Object> wrapper) {
+		this.utente = wrapper.getDato1();
 
 		// check if we have just added a Prodotto
 		if (wrapper.getDato2() == null) { // we have not added a Prodotto
@@ -190,11 +192,14 @@ public class CreaPacchettoProdottoController
 	}
 
 	public void creaPacchettoAction() {
-
+		this.pacchettoProdotti.setNome(nomePacchettoTextField.getText());
+		this.utente.addNewPacchetto(this.pacchettoProdotti);
+		servizioUtente.aggiornaUtente(utente);
+		dispatcher.renderVista("AreaPacchetti", utente);
 	}
 
 	public void cancelAction() {
-		dispatcher.renderVista("AreaPacchetti", persona);
+		dispatcher.renderVista("AreaPacchetti", utente);
 	}
 
 }
