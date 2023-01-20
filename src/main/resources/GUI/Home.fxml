@@ -12,72 +12,83 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.HomeController">
    <center>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="602.0" prefWidth="235.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="datiPersonali" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/datipersonaliCuttedSporco.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="34.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="CENTER" prefHeight="602.0" prefWidth="235.0">
+                     <children>
+                        <ImageView fx:id="datiPersonali1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/datipersonaliCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
+                     <children>
+                        <ImageView fx:id="ordina1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaOrdine" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/ordinaCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Ordina" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="ordina" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#accediAreaOrdine" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/ordinaCuttedSporco.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Ordina" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="34.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0">
+                     <children>
+                        <ImageView fx:id="pacchetti" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPacchetti" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/ordinaCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Pacchetti" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="227.0" layoutY="10.0">
+                     <children>
+                        <ImageView fx:id="iMieiOrdini" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaMieiOrdini" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="298.0" text="I miei ordini" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0">
-               <children>
-                  <ImageView fx:id="pacchetti" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#accediAreaPacchetti" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/ordinaCuttedSporco.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Pacchetti" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="34.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="227.0" layoutY="10.0">
-               <children>
-                  <ImageView fx:id="iMieiOrdini" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#accediAreaMieiOrdini" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="298.0" text="I miei ordini" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="34.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </center>
    <top>
       <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
