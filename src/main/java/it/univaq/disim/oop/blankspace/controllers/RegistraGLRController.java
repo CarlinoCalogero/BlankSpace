@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -28,14 +29,19 @@ public class RegistraGLRController implements Initializable, DataInitalizable<Ge
 	private DatePicker data;
 	@FXML
 	private Button registra;
+	@FXML
+	private Label errore;
 
 	public void registraUtente() {
 		if (!checkPassword())
 			return;
-		GestoreLuogoDiRitrovo newUtente = new GestoreLuogoDiRitrovo(this.nome.getText(), this.cognome.getText(), data.getValue(),
-				email.getText(), telefono.getText(), password.getText(),nomeLocale.getText(),indLocale.getText());
+		GestoreLuogoDiRitrovo newUtente = new GestoreLuogoDiRitrovo(this.nome.getText(), this.cognome.getText(),
+				data.getValue(), email.getText(), telefono.getText(), password.getText(), nomeLocale.getText(),
+				indLocale.getText());
 		if (servizioUtente.registraGestoreLuogoRitrovo(newUtente))
 			dispacher.renderVista("HomeAdmins", this.admin);
+		else
+			this.errore.setVisible(true);
 	}
 
 	public void annullaRegistrazione() {
@@ -58,6 +64,7 @@ public class RegistraGLRController implements Initializable, DataInitalizable<Ge
 								.isNull()
 								.or(nomeLocale.textProperty().isEmpty().or(indLocale.textProperty().isEmpty())))))));
 	}
+
 	@Override
 	public void initializeData(GestoreSistema gs) {
 		this.admin = gs;

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -28,6 +29,8 @@ public class RegistraAddettoController implements Initializable, DataInitalizabl
 	private DatePicker data;
 	@FXML
 	private Button registra;
+	@FXML
+	private Label errore;
 
 	public void registraUtente() {
 		if (!checkPassword())
@@ -36,6 +39,8 @@ public class RegistraAddettoController implements Initializable, DataInitalizabl
 				telefono.getText(), password.getText());
 		if(servizioUtente.registraAddettoCompere(newUtente))
 			dispacher.renderVista("HomeAdmins", this.admin);
+		else
+			this.errore.setVisible(true);
 	}
 
 	public void annullaRegistrazione() {

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,12 +46,12 @@
             <Font name="Arial" size="25.0" />
          </font>
       </PasswordField>
-      <Button fx:id="registra" layoutX="62.0" layoutY="472.0" mnemonicParsing="false" onAction="#registraUtente" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Conferma" textFill="WHITE">
+      <Button fx:id="registra" layoutX="59.0" layoutY="498.0" mnemonicParsing="false" onAction="#registraUtente" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Conferma" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button fx:id="annulla" layoutX="384.0" layoutY="472.0" mnemonicParsing="false" onAction="#annullaRegistrazione" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: red; -fx-border-radius: 30;" text="Annulla" textFill="WHITE">
+      <Button fx:id="annulla" layoutX="394.0" layoutY="498.0" mnemonicParsing="false" onAction="#annullaRegistrazione" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: red; -fx-border-radius: 30;" text="Annulla" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -60,5 +61,15 @@
             <Font name="Arial" size="25.0" />
          </font>
       </TextField>
+      <Label layoutX="56.0" layoutY="84.0" text="Inserisci i Dati del nuovo Gestore di Luogo di Ritrovo" textFill="#05a856">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="errore" layoutX="59.0" layoutY="437.0" text="I dati inseriti sono gia presenti nel sistema !!" textFill="RED" visible="false">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
