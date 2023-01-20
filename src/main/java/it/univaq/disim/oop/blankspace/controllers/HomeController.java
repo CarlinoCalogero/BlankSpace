@@ -3,7 +3,9 @@ package it.univaq.disim.oop.blankspace.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -48,7 +50,7 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 
 	@FXML
 	private void accediAreaOrdine() {
-		dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, Ordine>(utente, null));
+		dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(utente,null,null,null));
 	}
 
 	@FXML
