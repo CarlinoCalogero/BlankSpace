@@ -90,7 +90,7 @@ public class MieiPacchettiProdottoController
 				ordine.setStato(StatoOrdine.ATTIVO);
 				servizioOrdine.creaOrdineFromPacchetto(ordine, param.getValue());
 				utente.getOrdini().add(ordine);
-				//Associare anche all'utente
+				ordine.setUtente(utente);
 			});
 
 			return new SimpleObjectProperty<Button>(button);
