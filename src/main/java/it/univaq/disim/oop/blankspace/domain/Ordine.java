@@ -101,5 +101,4 @@ public class Ordine implements Comparable<Ordine> {
 		listProdotti.add(prodotto);
 		return true;
 	}
-
 }

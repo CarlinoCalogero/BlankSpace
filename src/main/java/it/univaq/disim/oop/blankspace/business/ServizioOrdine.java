@@ -1,6 +1,9 @@
 package it.univaq.disim.oop.blankspace.business;
 
+import java.util.Map;
+
 import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public interface ServizioOrdine {
 
@@ -9,5 +12,9 @@ public interface ServizioOrdine {
 	public void cancellaOrdine(int ordineId);
 
 	public void aggiornaOrdine(Ordine ordine);
+	
+	public Map<Integer,Ordine> getOrdiniFromUtente(Utente utente);
+	
+	public Map<Integer,Ordine> getOrdini();
 
 }

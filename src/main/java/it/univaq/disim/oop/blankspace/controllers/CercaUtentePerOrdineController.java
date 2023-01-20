@@ -72,7 +72,7 @@ public class CercaUtentePerOrdineController implements Initializable, DataInital
 			final Button dettagliButton = new Button("Seleziona");
 			dettagliButton.setOnAction((ActionEvent e) -> {
 				try {
-					// dispatcher.renderVista("", param.getValue());
+					dispatcher.renderVista("Home", param.getValue());
 					System.out.println("Selezionato: " + param.getValue().toString());
 				} catch (Exception e1) {
 					e1.printStackTrace();

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MieiOrdiniController implements Initializable, DataInitalizable<Utente>{
 	
@@ -64,7 +65,7 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
 	}
 	
 	@Override
