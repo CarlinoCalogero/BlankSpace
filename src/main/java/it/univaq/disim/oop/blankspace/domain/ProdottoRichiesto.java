@@ -3,7 +3,7 @@ package it.univaq.disim.oop.blankspace.domain;
 import java.io.File;
 
 public class ProdottoRichiesto extends Prodotto {
-	
+
 	private File allegato;
 	private Boolean medicinale;
 
@@ -22,14 +22,12 @@ public class ProdottoRichiesto extends Prodotto {
 		this.allegato = allegato;
 	}
 
-	public Boolean isMedicinale() {
+	public Boolean getMedicinale() {
 		return medicinale;
 	}
 
-	//Trovare un titolo migliore per il metodo
 	public void setMedicinale(Boolean medicinale) {
 		this.medicinale = medicinale;
 	}
 
-	
 }

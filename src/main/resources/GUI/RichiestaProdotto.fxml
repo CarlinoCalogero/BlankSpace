@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.RichiestaProdottoController">
+   <children>
+      <Button fx:id="richiediProdottoButton" layoutX="349.0" layoutY="524.0" mnemonicParsing="false" onAction="#richiestaProdottoAction" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #05a856; -fx-border-radius: 30;" text="Richiedi prodotto" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="annullaButton" layoutX="670.0" layoutY="524.0" mnemonicParsing="false" onAction="#annullaRichiestaProdottoAction" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: red; -fx-border-radius: 30;" text="Annulla" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="985.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="986.0">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="66.0" prefWidth="388.0" text="Richiesta di un prodotto" textFill="#00000095">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="60.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator maxWidth="700.0" prefHeight="6.0" prefWidth="700.0">
+                     <VBox.margin>
+                        <Insets left="40.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="178.0">
+               <children>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="54.0" layoutY="119.0" prefHeight="34.0" prefWidth="505.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Il prodotto richiesto è un medicinale?" wrappingWidth="363.185546875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <CheckBox fx:id="yesCheckBox" mnemonicParsing="false" onAction="#yesIsSelectedAction" prefHeight="24.0" prefWidth="40.0" text="Si">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="noCheckBox" mnemonicParsing="false" onAction="#noIsSelectedAction" prefHeight="24.0" prefWidth="47.0" text="No">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
+      <TextField fx:id="nomeProdottoTextField" layoutX="54.0" layoutY="182.0" prefHeight="46.0" prefWidth="654.0" promptText="Nome Prodotto">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="quantitaTextField" layoutX="722.0" layoutY="182.0" prefHeight="46.0" prefWidth="230.0" promptText="Quantità">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="negozioTextField" layoutX="54.0" layoutY="252.0" prefHeight="46.0" prefWidth="897.0" promptText="Negozio in cui deve essere comprato">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="noteAggiungtiveTextField" alignment="TOP_LEFT" layoutX="54.0" layoutY="316.0" prefHeight="156.0" prefWidth="897.0" promptText="Note aggiuntive">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="ricettaMedicaButton" layoutX="54.0" layoutY="182.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="897.0" text="Si prega di caricare una foto o un pdf della ricetta medica">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
