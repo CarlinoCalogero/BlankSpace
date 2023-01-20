@@ -18,13 +18,13 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 
 	private Utente utente;
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
-
+	
 	@FXML
 	private Button esciBottone;
-
+	
 	@FXML
 	private ImageView datiPersonali;
-
+	
 	@FXML
 	private ImageView pacchetti;
 
@@ -62,7 +62,7 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 	private void logout() {
 		dispatcher.renderVista("LogIn", null);
 	}
-
+	
 	@FXML
 	private void accediAreaPacchetti() {
 		System.out.println("Accesso area pacchetti");
