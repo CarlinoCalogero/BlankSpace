@@ -4,6 +4,7 @@ import java.util.Map;
 
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public interface ServizioOrdine {
@@ -13,6 +14,8 @@ public interface ServizioOrdine {
 	public void cancellaOrdine(int ordineId);
 
 	public void aggiornaOrdine(Ordine ordine);
+	
+	public void creaOrdineFromPacchetto(Ordine ordine, PacchettoProdotti pacchetto);
 	
 	public Map<Integer,Ordine> getOrdiniFromUtente(Utente utente);
 	

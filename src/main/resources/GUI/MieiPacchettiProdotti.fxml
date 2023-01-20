@@ -53,6 +53,7 @@
                   <TableColumn fx:id="nomeTableColumn" prefWidth="609.0" text="Nome" />
                   <TableColumn fx:id="apriButtonTableColumn" maxWidth="414.0" minWidth="70.0" prefWidth="112.0" resizable="false" text="Apri" />
                   <TableColumn fx:id="eliminaButtonTableColumn" maxWidth="496.0" minWidth="70.0" prefWidth="116.0" resizable="false" text="Elimina" />
+                  <TableColumn fx:id="ordinaColonna" maxWidth="414.0" minWidth="70.0" prefWidth="88.0" resizable="false" text="Ordina" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

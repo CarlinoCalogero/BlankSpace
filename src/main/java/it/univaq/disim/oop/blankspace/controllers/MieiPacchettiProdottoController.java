@@ -1,11 +1,15 @@
 package it.univaq.disim.oop.blankspace.controllers;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
+import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.business.ServizioUtente;
+import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
+import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -27,6 +31,7 @@ public class MieiPacchettiProdottoController
 	private Utente utente;
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private ServizioUtente servizioUtente = BusinessFactory.getImplementation().getServizioUtente();
+	private ServizioOrdine servizioOrdine = BusinessFactory.getImplementation().getServizioOrdine();
 
 	@FXML
 	private Button logoutButton;
@@ -45,6 +50,9 @@ public class MieiPacchettiProdottoController
 
 	@FXML
 	private TableColumn<PacchettoProdotti, String> nomeTableColumn;
+	
+	@FXML
+	private TableColumn<PacchettoProdotti, Button> ordinaColonna;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -69,6 +77,20 @@ public class MieiPacchettiProdottoController
 				servizioUtente.aggiornaUtente(this.utente);
 				dispatcher.renderVista("MieiPacchettiProdotti",
 						new WrapperInterVista<Utente, Object, Object, Object>(this.utente, null, null, null));
+			});
+
+			return new SimpleObjectProperty<Button>(button);
+		});
+		
+		ordinaColonna.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
+			final Button button = new Button("Ordina");
+			button.setOnAction((ActionEvent e) -> {
+				Ordine ordine = new Ordine();
+				ordine.setDataOrdinazione(LocalDate.now());
+				ordine.setStato(StatoOrdine.ATTIVO);
+				servizioOrdine.creaOrdineFromPacchetto(ordine, param.getValue());
+				utente.getOrdini().add(ordine);
+				//Associare anche all'utente
 			});
 
 			return new SimpleObjectProperty<Button>(button);

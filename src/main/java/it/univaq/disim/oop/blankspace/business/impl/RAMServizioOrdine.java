@@ -6,7 +6,9 @@ import java.util.Map;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
+import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public class RAMServizioOrdine implements ServizioOrdine {
@@ -57,5 +59,15 @@ public class RAMServizioOrdine implements ServizioOrdine {
 			ordiniGlr.put(ordine.getId(), ordine);
 
 		return ordiniGlr;
+	}
+
+	@Override
+	public void creaOrdineFromPacchetto(Ordine ordine, PacchettoProdotti pacchetto) {
+		creaOrdine(ordine);
+		for(Prodotto prodotto : pacchetto.getInsiemeProdotti()) {
+			ordine.getListProdotti().add(new ProdottoConQuantità(prodotto, "1"));
+			ordine.setTotaleSpeso(ordine.getTotaleSpeso() + prodotto.getPrezzo());
+		}
+		
 	}
 }
