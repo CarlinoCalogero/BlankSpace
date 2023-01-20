@@ -14,7 +14,6 @@ public class RAMProdottiService implements ProdottiService {
 
 	@Override
 	public boolean aggiungiProdotto(Prodotto prodotto) {
-		prodotto.setId(id);
 		return prodotti.put(id++, prodotto) == null;
 	}
 

@@ -3,6 +3,8 @@ package it.univaq.disim.oop.blankspace.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import it.univaq.disim.oop.blankspace.business.BusinessFactory;
+import it.univaq.disim.oop.blankspace.business.ProdottiService;
 import it.univaq.disim.oop.blankspace.domain.Categoria;
 import it.univaq.disim.oop.blankspace.domain.GestoreSistema;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
@@ -20,6 +22,8 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private GestoreSistema admin;
+
+	private ProdottiService prodottiService = BusinessFactory.getImplementation().getProdottiService();
 
 	@FXML
 	private Button logoutButton;
@@ -56,7 +60,7 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 		prodotto.setNegozio(negozioComboBox.getValue());
 		prodotto.setNome(nomeProdottoTextField.getText());
 		// price
-		// add to business factory
+		prodottiService.aggiungiProdotto(prodotto);
 
 	}
 

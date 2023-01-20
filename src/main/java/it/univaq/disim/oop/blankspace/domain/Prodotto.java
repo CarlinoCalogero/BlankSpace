@@ -2,7 +2,6 @@ package it.univaq.disim.oop.blankspace.domain;
 
 public class Prodotto implements Comparable<Prodotto> {
 
-	private Integer id;
 	private String nome;
 	private String descrizione;
 	private Categoria categoria;
@@ -14,20 +13,11 @@ public class Prodotto implements Comparable<Prodotto> {
 	}
 
 	public Prodotto(Integer id, String nome, String descrizione, Categoria categoria, Negozio negozio, Double prezzo) {
-		this.id = id;
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.categoria = categoria;
 		this.negozio = negozio;
 		this.prezzo = prezzo;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -75,7 +65,9 @@ public class Prodotto implements Comparable<Prodotto> {
 		if (obj == null || !(obj instanceof Prodotto))
 			return false;
 		Prodotto prod = (Prodotto) obj;
-		return this.id == prod.id;
+		return this.nome.equals(prod.nome) && this.descrizione.equals(prod.descrizione)
+				&& this.categoria.equals(prod.categoria) && this.negozio.equals(prod.negozio)
+				&& this.prezzo.equals(prod.prezzo);
 	}
 
 	@Override
