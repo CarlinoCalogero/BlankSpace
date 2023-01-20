@@ -8,7 +8,6 @@ public class GestoreSistema {
 		this.nickname = nickname;
 		this.password = password;
 	}
-
 	public String getNickname() {
 		return nickname;
 	}

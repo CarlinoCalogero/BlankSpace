@@ -34,11 +34,15 @@ public class GestoreLuogoDiRitrovo extends Persona {
 		if (obj == null || !(obj instanceof GestoreLuogoDiRitrovo))
 			return false;
 		GestoreLuogoDiRitrovo glr = (GestoreLuogoDiRitrovo) obj;
-		return super.equals(glr) && this.nomeLuogoDiRitrovo.equalsIgnoreCase(glr.nomeLuogoDiRitrovo)
+		return this.cognome.equalsIgnoreCase(glr.cognome) && this.nome.equalsIgnoreCase(glr.nome)
+				&& this.dataNascita.equals(glr.dataNascita) && this.email.equalsIgnoreCase(glr.email)
+				&& this.telefono.equals(glr.telefono) && this.password.equals(glr.password)
+				&& this.nomeLuogoDiRitrovo.equalsIgnoreCase(glr.nomeLuogoDiRitrovo)
 				&& this.indirizzoLuogoDiRitrovo.equalsIgnoreCase(glr.indirizzoLuogoDiRitrovo);
 	}
+
 	@Override
 	public String toString() {
-		return super.toString()+","+this.nomeLuogoDiRitrovo+","+this.indirizzoLuogoDiRitrovo;
+		return super.toString() + "," + this.nomeLuogoDiRitrovo + "," + this.indirizzoLuogoDiRitrovo;
 	}
 }

@@ -2,10 +2,6 @@ package it.univaq.disim.oop.blankspace.controllers;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
@@ -14,14 +10,11 @@ import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

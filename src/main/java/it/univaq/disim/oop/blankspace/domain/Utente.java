@@ -31,7 +31,10 @@ public class Utente extends Persona {
 	public boolean equals(Object obj) {
 		if (obj == null || !(obj instanceof Utente))
 			return false;
-		Utente u = (Utente) obj;
-		return super.equals(u) && this.residenza.equalsIgnoreCase(u.residenza);
+		Utente p = (Utente) obj;
+		return this.cognome.equalsIgnoreCase(p.cognome) && this.nome.equalsIgnoreCase(p.nome)
+				&& this.dataNascita.equals(p.dataNascita) && this.email.equalsIgnoreCase(p.email)
+				&& this.telefono.equals(p.telefono) && this.password.equals(p.password)
+				&& this.residenza.equalsIgnoreCase(p.residenza);
 	}
 }
