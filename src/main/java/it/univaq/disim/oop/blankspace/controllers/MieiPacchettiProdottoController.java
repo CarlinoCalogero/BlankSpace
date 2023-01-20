@@ -7,8 +7,11 @@ import java.util.ResourceBundle;
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.business.ServizioUtente;
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -85,13 +88,16 @@ public class MieiPacchettiProdottoController
 		ordinaColonna.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Ordina");
 			button.setOnAction((ActionEvent e) -> {
-				Ordine ordine = new Ordine();
+				Ordine ordine = servizioOrdine.creaOrdine(new Ordine()); 
 				ordine.setDataOrdinazione(LocalDate.now());
 				ordine.setStato(StatoOrdine.ATTIVO);
-				servizioOrdine.creaOrdineFromPacchetto(ordine, param.getValue());
-				utente.getOrdini().add(ordine);
 				ordine.setUtente(utente);
-				dispatcher.renderVista("Home", this.utente);
+				for(Prodotto prodotto : param.getValue().getInsiemeProdotti()) {
+					ordine.aggiungiProdottoRichiesto(new ProdottoConQuantità(prodotto, "1"));
+					ordine.setTotaleSpeso(ordine.getTotaleSpeso() + prodotto.getPrezzo());
+				}
+				servizioOrdine.aggiornaOrdine(ordine);
+				dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo,Ordine,Prodotto>(this.utente, null,ordine, null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);
