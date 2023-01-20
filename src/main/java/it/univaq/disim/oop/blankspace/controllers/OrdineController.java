@@ -149,10 +149,10 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 	public void initializeData(WrapperInterVista<Persona, Ordine> wrapper) {
 		this.persona = wrapper.getDato1();
 
-		// let's check if we are modifying an order
+		// let's check if we have just added a ProdottoRichiesto
 		if (wrapper.getDato2() == null) {// we are creating a new order
 			this.ordine = servizioOrdine.creaOrdine(new Ordine());
-		} else { // we are editing an order
+		} else { // we have just added a ProdottoRichiesto
 			this.ordine = wrapper.getDato2();
 		}
 
@@ -186,7 +186,8 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 	@FXML
 	private void annullaOrdine(ActionEvent event) {
-		System.out.println("Annullando l'ordine...");
+		servizioOrdine.cancellaOrdine(this.ordine.getId());
+		dispatcher.renderVista("Home", this.persona);
 	}
 
 	@FXML

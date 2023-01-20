@@ -26,4 +26,9 @@ public class RAMServizioOrdine implements ServizioOrdine {
 		ordini.put(ordine.getId(), ordine);
 	}
 
+	@Override
+	public void cancellaOrdine(int ordineId) {
+		ordini.remove(ordineId);
+	}
+
 }

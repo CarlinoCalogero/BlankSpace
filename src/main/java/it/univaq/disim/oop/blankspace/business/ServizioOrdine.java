@@ -6,6 +6,8 @@ public interface ServizioOrdine {
 
 	public Ordine creaOrdine(Ordine ordine);
 
+	public void cancellaOrdine(int ordineId);
+
 	public void aggiornaOrdine(Ordine ordine);
 
 }
