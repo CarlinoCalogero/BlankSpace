@@ -7,6 +7,14 @@ import java.util.Set;
 
 public class Utente extends Persona {
 	private String residenza;
+	public String getResidenza() {
+		return residenza;
+	}
+
+	public void setResidenza(String residenza) {
+		this.residenza = residenza;
+	}
+
 	private ArrayList<PacchettoProdotti> pacchettiProdotti;
 	private Set<Ordine> ordini = new HashSet<>();
 

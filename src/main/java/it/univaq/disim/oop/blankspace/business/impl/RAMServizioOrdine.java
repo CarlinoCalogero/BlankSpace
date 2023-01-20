@@ -35,16 +35,27 @@ public class RAMServizioOrdine implements ServizioOrdine {
 	}
 
 	@Override
-	public Map<Integer,Ordine> getOrdini() {
+	public Map<Integer, Ordine> getOrdini() {
 		return ordini;
 	}
 
 	@Override
 	public Map<Integer, Ordine> getOrdiniFromUtente(Utente utente) {
 		Map<Integer, Ordine> ordiniUtente = new HashMap<>();
-		
-		for(Ordine ordine : utente.getOrdini()) ordiniUtente.put(ordine.getId(), ordine);
-		
+
+		for (Ordine ordine : utente.getOrdini())
+			ordiniUtente.put(ordine.getId(), ordine);
+
 		return ordiniUtente;
+	}
+
+	@Override
+	public Map<Integer, Ordine> getOrdiniFromGLR(GestoreLuogoDiRitrovo glr) {
+		Map<Integer, Ordine> ordiniGlr = new HashMap<>();
+
+		for (Ordine ordine : glr.getOrdini())
+			ordiniGlr.put(ordine.getId(), ordine);
+
+		return ordiniGlr;
 	}
 }
