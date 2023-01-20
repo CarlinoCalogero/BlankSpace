@@ -31,6 +31,7 @@ public class LogInController implements Initializable,DataInitalizable<Persona>{
 		Persona logged = servizioUtente.getUtente(email.getText(), password.getText());
 		String vista = "";
 		if(logged == null) {
+			this.errore.setVisible(true);
 			this.errore.setText("Email o Password Errati");
 			return;
 		}
