@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.AggungProdottoOrdineController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.AggiungiProdottoOrdineController">
    <top>
       <HBox prefHeight="35.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,50 +51,109 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="1034.0">
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="98.0" prefWidth="247.0" text="Stai acquistando:">
+                  <Label text="Nome Prodotto: ">
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="prodottoEtichetta" layoutX="390.0" layoutY="10.0" prefHeight="62.0" prefWidth="202.0" text="&lt;nomeprod&gt;">
+                  <Label fx:id="nomeProdotto" text="&lt;Nome Prodotto&gt; ">
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font size="30.0" />
                      </font>
                   </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="245.0" prefHeight="38.0" prefWidth="1034.0">
-               <children>
-                  <Label prefHeight="62.0" prefWidth="135.0" text="Negozio:">
+                  <Label text="Quantita: ">
                      <font>
-                        <Font name="System Italic" size="30.0" />
+                        <Font size="30.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
                   </Label>
-                  <Label fx:id="negozioEtichetta" layoutX="390.0" layoutY="10.0" prefHeight="62.0" prefWidth="185.0" text="&lt;nomeneg&gt;">
+                  <TextField fx:id="quantita">
                      <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="176.0" prefHeight="62.0" prefWidth="1034.0">
-               <children>
-                  <TextField fx:id="quantitàCampo" prefHeight="41.0" prefWidth="362.0" promptText="Quantità...">
-                     <font>
-                        <Font size="19.0" />
+                        <Font size="20.0" />
                      </font>
                   </TextField>
                </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
             </HBox>
-            <Button fx:id="aggiungiProdottoBottone" mnemonicParsing="false" onAction="#aggiungiProdottoAllOrdine" prefHeight="41.0" prefWidth="202.0" styleClass="richiedi-button" stylesheets="@../style/button.css" text="Aggiungi Prodotto">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Button>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
+               <children>
+                  <Label text="Categoria:">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="categoria" text="&lt;Categoria&gt; ">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
+               <children>
+                  <Label text="Negozio:">
+                     <font>
+                        <Font name="System Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="negozio" text="&lt;Negozio&gt; ">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="142.0" prefWidth="985.0">
+               <children>
+                  <Label text="Descrizione: ">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="descrizione" prefHeight="46.0" prefWidth="267.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextArea>
+                  <Button fx:id="aggiungiBottone" alignment="CENTER" mnemonicParsing="false" onAction="#aggiungiProdottoAllOrdine" prefHeight="54.0" prefWidth="119.0" stylesheets="@../style/button.css" text="Aggiungi all'Ordine" textAlignment="CENTER" textFill="#5f6569" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="filter-button" />
+                        <String fx:value="richiedi-button" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="230.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="annullaBottone" mnemonicParsing="false" onAction="#annulla" prefHeight="52.0" prefWidth="97.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Annulla" textFill="#5f6569">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
    </center>

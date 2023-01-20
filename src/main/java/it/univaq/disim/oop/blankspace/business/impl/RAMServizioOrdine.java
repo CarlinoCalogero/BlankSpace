@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.domain.Persona;
+import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public class RAMServizioOrdine implements ServizioOrdine {
 
@@ -31,4 +34,17 @@ public class RAMServizioOrdine implements ServizioOrdine {
 		ordini.remove(ordineId);
 	}
 
+	@Override
+	public Map<Integer,Ordine> getOrdini() {
+		return ordini;
+	}
+
+	@Override
+	public Map<Integer, Ordine> getOrdiniFromUtente(Utente utente) {
+		Map<Integer, Ordine> ordiniUtente = new HashMap<>();
+		
+		for(Ordine ordine : utente.getOrdini()) ordiniUtente.put(ordine.getId(), ordine);
+		
+		return ordiniUtente;
+	}
 }

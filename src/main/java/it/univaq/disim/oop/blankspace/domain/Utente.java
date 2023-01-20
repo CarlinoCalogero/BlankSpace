@@ -2,10 +2,13 @@ package it.univaq.disim.oop.blankspace.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Utente extends Persona {
 	private String residenza;
 	private ArrayList<PacchettoProdotti> pacchettiProdotti;
+	private Set<Ordine> ordini = new HashSet<>();
 
 	public Utente(String nome, String cognome, LocalDate dataNascita, String email, String telefono, String password,
 			String residenza) {
@@ -20,6 +23,14 @@ public class Utente extends Persona {
 
 	public boolean removePacchettoProdotti(PacchettoProdotti p) {
 		return this.pacchettiProdotti.remove(p);
+	}
+	
+	public Set<Ordine> getOrdini() {
+		return ordini;
+	}
+
+	public void setOrdini(Set<Ordine> ordini) {
+		this.ordini = ordini;
 	}
 
 	@Override

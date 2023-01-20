@@ -1,5 +1,6 @@
 package it.univaq.disim.oop.blankspace.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,7 +13,7 @@ public class Ordine implements Comparable<Ordine> {
 	private Map<Integer, Prodotto> insiemeProdotti = new HashMap<>();
 
 	private Integer id;
-	private Date dataOrdinazione;
+	private LocalDate dataOrdinazione;
 	private Double totaleSpeso;
 	private StatoOrdine stato;
 	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
@@ -21,7 +22,7 @@ public class Ordine implements Comparable<Ordine> {
 
 	}
 
-	public Ordine(Integer id, Date dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
+	public Ordine(Integer id, LocalDate dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
 		this.id = id;
 		this.dataOrdinazione = dataOrdinazione;
 		this.totaleSpeso = totaleSpeso;
@@ -36,11 +37,11 @@ public class Ordine implements Comparable<Ordine> {
 		this.id = id;
 	}
 
-	public Date getDataOrdinazione() {
+	public LocalDate getDataOrdinazione() {
 		return dataOrdinazione;
 	}
 
-	public void setDataOrdinazione(Date dataOrdinazione) {
+	public void setDataOrdinazione(LocalDate dataOrdinazione) {
 		this.dataOrdinazione = dataOrdinazione;
 	}
 
@@ -101,5 +102,4 @@ public class Ordine implements Comparable<Ordine> {
 		listProdotti.add(prodotto);
 		return true;
 	}
-
 }

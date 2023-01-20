@@ -1,10 +1,13 @@
 package it.univaq.disim.oop.blankspace.domain;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GestoreLuogoDiRitrovo extends Persona {
 	private String nomeLuogoDiRitrovo;
 	private String indirizzoLuogoDiRitrovo;
+	private Set<Ordine> ordini = new HashSet<>();
 
 	public GestoreLuogoDiRitrovo(String nome, String cognome, LocalDate dataNascita, String email, String telefono,
 			String password, String nomeLuogoDiRitrovo, String indirizzoLuogoDiRitrovo) {
@@ -28,6 +31,15 @@ public class GestoreLuogoDiRitrovo extends Persona {
 	public void setIndirizzoLuogoDiRitrovo(String indirizzoLuogoDiRitrovo) {
 		this.indirizzoLuogoDiRitrovo = indirizzoLuogoDiRitrovo;
 	}
+	
+
+	public Set<Ordine> getOrdini() {
+		return ordini;
+	}
+
+	public void setOrdini(Set<Ordine> ordini) {
+		this.ordini = ordini;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -45,4 +57,5 @@ public class GestoreLuogoDiRitrovo extends Persona {
 	public String toString() {
 		return super.toString() + "," + this.nomeLuogoDiRitrovo + "," + this.indirizzoLuogoDiRitrovo;
 	}
+
 }
