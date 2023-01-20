@@ -75,6 +75,7 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 		prodotto.setPrezzo(Double.valueOf(prezzoTextField.getText()));
 
 		prodottiService.aggiungiProdotto(prodotto);
+		dispatcher.renderVista("HomeAdmins", this.admin);
 
 	}
 
