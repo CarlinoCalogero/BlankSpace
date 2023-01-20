@@ -104,6 +104,7 @@ public class CreaPacchettoProdottoController
 				if (row.getItem() == null)
 					return;
 				this.pacchettoProdotti.aggiungiProdottoAlPacchetto(row.getItem());
+				this.pacchettoProdotti.setNome(nomePacchettoTextField.getText());
 				dispatcher.renderVista("CreaPacchettoProdotto",
 						new WrapperInterVista<Utente, PacchettoProdotti, Object, Object>(utente, this.pacchettoProdotti,
 								null, null));
@@ -162,6 +163,7 @@ public class CreaPacchettoProdottoController
 			this.pacchettoProdotti = new PacchettoProdotti();
 		} else { // we have just addedd a prodotto
 			this.pacchettoProdotti = wrapper.getDato2();
+			nomePacchettoTextField.setText(this.pacchettoProdotti.getNome());
 		}
 
 		try {

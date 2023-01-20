@@ -54,7 +54,9 @@ public class MieiPacchettiProdottoController
 		apriButtonTableColumn.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Apri");
 			button.setOnAction((ActionEvent e) -> {
-
+				dispatcher.renderVista("CreaPacchettoProdotto",
+						new WrapperInterVista<Utente, PacchettoProdotti, Object, Object>(utente, param.getValue(), null,
+								null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);
@@ -65,7 +67,7 @@ public class MieiPacchettiProdottoController
 			button.setOnAction((ActionEvent e) -> {
 				this.utente.removePacchettoProdotti(param.getValue());
 				servizioUtente.aggiornaUtente(this.utente);
-				dispatcher.renderVista("MieiPacchettiProdotto",
+				dispatcher.renderVista("MieiPacchettiProdotti",
 						new WrapperInterVista<Utente, Object, Object, Object>(this.utente, null, null, null));
 			});
 
@@ -88,7 +90,7 @@ public class MieiPacchettiProdottoController
 
 	@FXML
 	private void indietroAction() {
-		dispatcher.renderVista("Home", utente);
+		dispatcher.renderVista("AreaPacchetti", utente);
 	}
 
 }
