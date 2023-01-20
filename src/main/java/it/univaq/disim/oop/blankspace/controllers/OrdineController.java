@@ -161,7 +161,7 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 	@Override
 	public void initializeData(WrapperInterVista<Utente,GestoreLuogoDiRitrovo,Ordine,Prodotto> wrapper) {
 		this.utente = wrapper.getDato1();
-
+		this.gestore = wrapper.getDato2();
 		// let's check if we have just added a ProdottoRichiesto
 		if (wrapper.getDato3() == null) {// we are creating a new order
 			Ordine ordine = new Ordine();

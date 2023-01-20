@@ -56,7 +56,8 @@ public class HomeController implements Initializable, DataInitalizable<Utente> {
 
 	@FXML
 	private void accediAreaMieiOrdini() {
-		dispatcher.renderVista("MieiOrdini", utente);
+		dispatcher.renderVista("MieiOrdini",
+				new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(utente, null, null, null));
 	}
 
 	@FXML
