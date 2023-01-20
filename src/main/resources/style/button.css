@@ -9,3 +9,9 @@
 	-fx-background-radius: 15px;
 	-fx-text-fill: #ffffff;
 }
+
+.richiedi-button {
+	-fx-background-color: green;
+	-fx-background-radius: 15px;
+	-fx-text-fill: #ffffff;
+}

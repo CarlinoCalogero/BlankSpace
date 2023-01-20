@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.MieiOrdiniController">
+   <top>
+      <HBox prefHeight="35.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="986.0">
+               <children>
+                  <HBox prefHeight="20.0" prefWidth="922.0">
+                     <children>
+                        <Label prefHeight="66.0" prefWidth="581.0" text="La prossima partenza è prevista per il:" textFill="#00000095">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="dataEtichetta" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="439.0" text="GG/MM/YYYY" textFill="#6ac493">
+                           <font>
+                              <Font size="45.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Separator maxWidth="840.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Separator>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="178.0">
+               <children>
+                  <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#esci" prefHeight="26.0" prefWidth="55.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1034.0">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="537.0" prefWidth="834.0">
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="386.0" prefWidth="603.0">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                     <children>
+                        <HBox prefHeight="49.0" prefWidth="602.0">
+                           <children>
+                              <TextField fx:id="barraDiRicerca" alignment="CENTER" onAction="#cerca" prefHeight="31.0" prefWidth="525.0" promptText="Cerca" styleClass="searchbar" stylesheets="@../style/searchbar.css">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="filtraBottone" mnemonicParsing="false" onAction="#filtra" prefHeight="32.0" prefWidth="74.0" styleClass="filter-button" stylesheets="@../style/button.css" text="Filtra" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="ordiniTabella" prefHeight="382.0" prefWidth="603.0">
+                          <columns>
+                            <TableColumn fx:id="prodottoColonna" prefWidth="177.06668853759766" text="Prodotto" />
+                            <TableColumn fx:id="quantitàColonna" prefWidth="399.2000427246094" text="Quantità" />
+                              <TableColumn fx:id="negozioColonna" prefWidth="399.2000427246094" text="Negozio" />
+                              <TableColumn fx:id="richiestaColonna" prefWidth="399.2000427246094" text="Richiesto" />
+                              <TableColumn fx:id="categoriaColonna" prefWidth="399.2000427246094" text="Categoria" />
+                              <TableColumn fx:id="pdfColonna" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" />
+                              <TableColumn fx:id="eliminaColonna" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <HBox>
+                           <children>
+                              <Button fx:id="indietroBottone" mnemonicParsing="false" onAction="#indietro" prefHeight="44.0" prefWidth="181.0" stylesheets="@../style/button.css" text="Richiedi prodotto" textFill="#5f6569">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="filter-button" />
+                                    <String fx:value="richiedi-button" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="indietroBottone1" mnemonicParsing="false" onAction="#indietro" prefHeight="52.0" prefWidth="180.0" stylesheets="@../style/button.css" text="Conferma ordine" textFill="#5f6569">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="filter-button" />
+                                    <String fx:value="richiedi-button" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="210.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="58.0" prefWidth="216.0" text="Clicca per aggiungere" />
+                        <TableView fx:id="catalogoTabella" prefHeight="390.0" prefWidth="218.0">
+                          <columns>
+                            <TableColumn fx:id="negozioCatalogoColonna" prefWidth="98.39996337890625" text="Negozio" />
+                            <TableColumn fx:id="prodottoCatalogoColonna" prefWidth="116.79996490478516" text="Prodotto" />
+                          </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="218.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                           <children>
+                              <Button fx:id="indietroBottone2" mnemonicParsing="false" onAction="#indietro" prefHeight="52.0" prefWidth="181.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Annulla" textFill="#5f6569">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="1034.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
