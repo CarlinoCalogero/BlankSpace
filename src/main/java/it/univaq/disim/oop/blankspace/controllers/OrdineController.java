@@ -12,7 +12,8 @@ import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
@@ -63,28 +64,28 @@ public class OrdineController
 	private Label dataEtichetta;
 
 	@FXML
-	private TableView<ProdottoConQuantità> ordineTabella;
+	private TableView<ProdottoConQuantita> ordineTabella;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, String> prodottoColonna;
+	private TableColumn<ProdottoConQuantita, String> prodottoColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, Categoria> categoriaColonna;
+	private TableColumn<ProdottoConQuantita, Categoria> categoriaColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, Button> eliminaColonna;
+	private TableColumn<ProdottoConQuantita, Button> eliminaColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, Negozio> negozioColonna;
+	private TableColumn<ProdottoConQuantita, Negozio> negozioColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, Button> pdfColonna;
+	private TableColumn<ProdottoConQuantita, Button> pdfColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, String> quantitàColonna;
+	private TableColumn<ProdottoConQuantita, String> quantitàColonna;
 
 	@FXML
-	private TableColumn<ProdottoConQuantità, String> richiestaColonna;
+	private TableColumn<ProdottoConQuantita, String> richiestaColonna;
 
 	@FXML
 	private TableView<Prodotto> catalogoTabella;
@@ -115,39 +116,39 @@ public class OrdineController
 			return row;
 		});
 
-		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			if (param.getValue().getProdotto() instanceof ProdottoRichiesto) {
 				ProdottoRichiesto pr = (ProdottoRichiesto) param.getValue().getProdotto();
 				return new SimpleObjectProperty<String>("Si");
 			} else
 				return new SimpleObjectProperty<String>("No");
 		});
-		quantitàColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+		quantitàColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			return new SimpleObjectProperty<String>(param.getValue().getQuantità());
 		});
-		negozioColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Negozio> param) -> {
+		negozioColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Negozio> param) -> {
 			return new SimpleObjectProperty<Negozio>(param.getValue().getProdotto().getNegozio());
 		});
-		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			return new SimpleObjectProperty<String>(param.getValue().getProdotto().getNome());
 		});
 
-		pdfColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Button> param) -> {
+		pdfColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Button> param) -> {
 			final Button button = new Button("Pdf");
 			// TODO: settare la funzione del bottone
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
 		});
 
-		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			if (param.getValue().getProdotto() instanceof ProdottoRichiesto)
 				return new SimpleObjectProperty<String>("Si");
 			return new SimpleObjectProperty<String>("No");
 		});
-		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Categoria> param) -> {
+		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Categoria> param) -> {
 			return new SimpleObjectProperty<Categoria>(param.getValue().getProdotto().getCategoria());
 		});
-		eliminaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Button> param) -> {
+		eliminaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Button> param) -> {
 			final Button button = new Button("Elimina");
 			// TODO: settare la funzione del bottone
 			// button.setOnAction();
@@ -179,9 +180,9 @@ public class OrdineController
 			ObservableList<Prodotto> prodottiData = FXCollections.observableArrayList(prodottiService.getAllProdotti());
 			catalogoTabella.setItems((ObservableList<Prodotto>) prodottiData);
 
-			ObservableList<ProdottoConQuantità> prodottiOrdinatiData = FXCollections
+			ObservableList<ProdottoConQuantita> prodottiOrdinatiData = FXCollections
 					.observableArrayList(this.ordine.getListProdotti());
-			ordineTabella.setItems((ObservableList<ProdottoConQuantità>) prodottiOrdinatiData);
+			ordineTabella.setItems((ObservableList<ProdottoConQuantita>) prodottiOrdinatiData);
 		} catch (Exception e) {
 			// dispatcher.renderError(e);
 		}

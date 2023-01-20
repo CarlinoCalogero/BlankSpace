@@ -15,7 +15,7 @@ public class Ordine implements Comparable<Ordine> {
 	private LocalDate dataOrdinazione;
 	private Double totaleSpeso = 0.0;
 	private StatoOrdine stato;
-	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
+	private Set<ProdottoConQuantita> listProdotti = new HashSet<>();
 	private Utente utente;
 
 	public Ordine() {
@@ -94,15 +94,15 @@ public class Ordine implements Comparable<Ordine> {
 		return this.id.compareTo(o.id);
 	}
 
-	public Set<ProdottoConQuantità> getListProdotti() {
+	public Set<ProdottoConQuantita> getListProdotti() {
 		return new HashSet<>(listProdotti);
 	}
 
-	public void setListProdotti(Set<ProdottoConQuantità> listProdotti) {
+	public void setListProdotti(Set<ProdottoConQuantita> listProdotti) {
 		this.listProdotti = listProdotti;
 	}
 
-	public boolean aggiungiProdottoRichiesto(ProdottoConQuantità prodotto) {
+	public boolean aggiungiProdottoRichiesto(ProdottoConQuantita prodotto) {
 		if (listProdotti.contains(prodotto))
 			return false;
 		listProdotti.add(prodotto);

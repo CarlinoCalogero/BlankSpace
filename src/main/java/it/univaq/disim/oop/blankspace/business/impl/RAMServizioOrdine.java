@@ -6,9 +6,6 @@ import java.util.Map;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
-import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public class RAMServizioOrdine implements ServizioOrdine {

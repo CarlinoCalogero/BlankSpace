@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -76,7 +76,7 @@ public class AggiungiProdottoOrdineController implements Initializable, DataInit
 	}
 	@FXML
 	private void aggiungiProdottoAllOrdine(ActionEvent event) {
-		this.ordine.aggiungiProdottoRichiesto(new ProdottoConQuantità(prodotto,this.quantita.getText()));
+		this.ordine.aggiungiProdottoRichiesto(new ProdottoConQuantita(prodotto,this.quantita.getText()));
 		this.ordine.setTotaleSpeso(this.ordine.getTotaleSpeso() + prodotto.getPrezzo()*Double.parseDouble(this.quantita.getText()));
 		dispatcher.renderVista("Ordine",new WrapperInterVista<Utente,GestoreLuogoDiRitrovo,Ordine,Prodotto>(this.utente,this.glr,this.ordine,null));
 	}
