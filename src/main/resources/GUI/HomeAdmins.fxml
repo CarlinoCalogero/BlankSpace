@@ -74,7 +74,7 @@
    <top>
       <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0">
          <children>
-            <Button fx:id="esciBottone" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
                <VBox.margin>
                   <Insets right="20.0" top="10.0" />
                </VBox.margin>
