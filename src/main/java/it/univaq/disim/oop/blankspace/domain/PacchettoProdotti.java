@@ -1,34 +1,34 @@
 package it.univaq.disim.oop.blankspace.domain;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PacchettoProdotti implements Comparable<PacchettoProdotti> {
 
-	private Map<Integer, Prodotto> insiemeProdotti = new TreeMap<>();
-
-	private Integer id;
+	private Set<Prodotto> insiemeProdotti = new HashSet<>();
 	private String nome;
 
+	public PacchettoProdotti() {
+	}
+
 	public PacchettoProdotti(Integer id, String nome) {
-		this.id = id;
 		this.nome = nome;
 	}
 
-	public Map<Integer, Prodotto> getInsiemeProdotti() {
-		return insiemeProdotti;
+	public Set<Prodotto> getInsiemeProdotti() {
+		return new HashSet<>(this.insiemeProdotti);
 	}
 
-	public void setInsiemeProdotti(Map<Integer, Prodotto> insiemeProdotti) {
+	public void setInsiemeProdotti(Set<Prodotto> insiemeProdotti) {
 		this.insiemeProdotti = insiemeProdotti;
 	}
 
-	public Integer getId() {
-		return id;
+	public void aggiungiProdottoAlPacchetto(Prodotto prodotto) {
+		this.insiemeProdotti.add(prodotto);
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void rimuoviProdottoAlPacchetto(Prodotto prodotto) {
+		this.insiemeProdotti.remove(prodotto);
 	}
 
 	public String getNome() {
