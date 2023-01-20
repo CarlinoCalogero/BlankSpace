@@ -14,7 +14,10 @@ public class RAMProdottiService implements ProdottiService {
 
 	@Override
 	public boolean aggiungiProdotto(Prodotto prodotto) {
-		return prodotti.put(id++, prodotto) == null;
+		if (prodotti.containsValue(prodotto))
+			return false;
+		prodotti.put(id++, prodotto);
+		return true;
 	}
 
 	@Override

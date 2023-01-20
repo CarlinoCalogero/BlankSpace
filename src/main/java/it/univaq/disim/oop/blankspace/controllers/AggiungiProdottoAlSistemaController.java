@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -49,17 +50,30 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 	@FXML
 	private TextField prezzoTextField;
 
+	@FXML
+	private Label errorLabel;
+
 	public void logoutAction() {
 		dispatcher.renderVista("LogIn", null);
 	}
 
 	public void aggiungiProdottoAction() {
+
+		try {// checks if prezzoTextField is a number
+			Double.parseDouble(prezzoTextField.getText());
+		} catch (NumberFormatException e) {
+			errorLabel.setText("Errore! Inserisci un numero adeguanto nel campo \"Prezzo\"!");
+			errorLabel.setVisible(true);
+			return;
+		}
+
 		Prodotto prodotto = new Prodotto();
 		prodotto.setCategoria(categoriaComboBox.getValue());
 		prodotto.setDescrizione(descrizioneProdottoTextArea.getText());
 		prodotto.setNegozio(negozioComboBox.getValue());
 		prodotto.setNome(nomeProdottoTextField.getText());
-		// price
+		prodotto.setPrezzo(Double.valueOf(prezzoTextField.getText()));
+
 		prodottiService.aggiungiProdotto(prodotto);
 
 	}
@@ -71,7 +85,12 @@ public class AggiungiProdottoAlSistemaController implements Initializable, DataI
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		categoriaComboBox.getItems().addAll(Categoria.values());
+		categoriaComboBox.setValue(Categoria.CARNE);
 		negozioComboBox.getItems().addAll(Negozio.values());
+		negozioComboBox.setValue(Negozio.CONAD);
+		errorLabel.setVisible(false);
+		aggiungiProdottoButton.disableProperty().bind(nomeProdottoTextField.textProperty().isEmpty()
+				.or(descrizioneProdottoTextArea.textProperty().isEmpty().or(prezzoTextField.textProperty().isEmpty())));
 	}
 
 	public void initializeData(GestoreSistema admin) {
