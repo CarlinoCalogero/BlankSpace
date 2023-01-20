@@ -33,7 +33,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class OrdineController implements Initializable, DataInitalizable<WrapperInterVista<Utente,GestoreLuogoDiRitrovo, Ordine,Prodotto>> {
+public class OrdineController
+		implements Initializable, DataInitalizable<WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private Utente utente;
@@ -107,8 +108,8 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 				// Passo alla vista di aggiunta di un nuovo prodotto la persona loggata,
 				// l'ordine e il prodotto da aggiungere.
 				dispatcher.renderVista("AggiuntaProdottiOrdine",
-						new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(this.utente, this.gestore,
-								this.ordine, row.getItem()));
+						new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(this.utente,
+								this.gestore, this.ordine, row.getItem()));
 
 			});
 			return row;
@@ -137,9 +138,10 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
 		});
-		
+
 		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
-			if(param.getValue().getProdotto() instanceof ProdottoRichiesto) return new SimpleObjectProperty<String>("Si");
+			if (param.getValue().getProdotto() instanceof ProdottoRichiesto)
+				return new SimpleObjectProperty<String>("Si");
 			return new SimpleObjectProperty<String>("No");
 		});
 		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Categoria> param) -> {
@@ -159,7 +161,7 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 	}
 
 	@Override
-	public void initializeData(WrapperInterVista<Utente,GestoreLuogoDiRitrovo,Ordine,Prodotto> wrapper) {
+	public void initializeData(WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto> wrapper) {
 		this.utente = wrapper.getDato1();
 		this.gestore = wrapper.getDato2();
 		// let's check if we have just added a ProdottoRichiesto
@@ -167,11 +169,8 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 			Ordine ordine = new Ordine();
 			ordine.setStato(StatoOrdine.ATTIVO);
 			ordine.setDataOrdinazione(LocalDate.now());
+			ordine.setUtente(this.utente);
 			this.ordine = servizioOrdine.creaOrdine(ordine);
-			if(wrapper.getDato2() != null) { //Sono entrato come gestore del luogo di ritrovo
-				wrapper.getDato2().getOrdini().add(ordine); //Aggiungo l'ordine anche al gestore del luogo di ritrovo
-			}
-			wrapper.getDato1().getOrdini().add(this.ordine);
 		} else { // we have just added a ProdottoRichiesto
 			this.ordine = wrapper.getDato3();
 		}
@@ -208,23 +207,25 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 	@FXML
 	private void annullaOrdine(ActionEvent event) {
 		servizioOrdine.cancellaOrdine(this.ordine.getId());
-		if(this.gestore != null)
+		if (this.gestore != null) {
 			dispatcher.renderVista("HomeGLR", this.gestore);
-		else
+		} else
 			dispatcher.renderVista("Home", this.utente);
 	}
 
 	@FXML
 	private void confermaOrdine(ActionEvent event) {
-		System.out.println(this.ordine.getTotaleSpeso());
-		if(this.gestore != null)
+		this.utente.getOrdini().add(this.ordine);
+		if (this.gestore != null) {
+			this.gestore.getOrdini().add(ordine);
 			dispatcher.renderVista("HomeGLR", this.gestore);
-		else
+		} else
 			dispatcher.renderVista("Home", this.utente);
 	}
 
 	@FXML
 	private void richiediProdotto(ActionEvent event) {
-		dispatcher.renderVista("RichiestaProdotto", new WrapperInterVista<Utente,GestoreLuogoDiRitrovo ,Ordine,Prodotto>(utente,gestore,ordine,null));
+		dispatcher.renderVista("RichiestaProdotto",
+				new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(utente, gestore, ordine, null));
 	}
 }
