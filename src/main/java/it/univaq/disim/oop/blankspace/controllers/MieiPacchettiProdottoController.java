@@ -91,6 +91,7 @@ public class MieiPacchettiProdottoController
 				servizioOrdine.creaOrdineFromPacchetto(ordine, param.getValue());
 				utente.getOrdini().add(ordine);
 				ordine.setUtente(utente);
+				dispatcher.renderVista("Home", this.utente);
 			});
 
 			return new SimpleObjectProperty<Button>(button);
