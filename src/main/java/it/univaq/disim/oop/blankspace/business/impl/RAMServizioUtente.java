@@ -30,7 +30,9 @@ public class RAMServizioUtente implements ServizioUtente{
 	}
 	@Override
 	public boolean registraUtente(Utente u) {
-		return utenti.put(id++, u) == null;
+		if(!this.utenti.containsValue(u))
+			return this.utenti.put(id++, u) == null;
+		return false;
 	}
 
 	@Override
@@ -42,11 +44,15 @@ public class RAMServizioUtente implements ServizioUtente{
 	}
 	@Override
 	public boolean registraGestoreLuogoRitrovo(GestoreLuogoDiRitrovo glr) {
-		return utenti.put(id++, glr) == null;
+		if(!this.utenti.containsValue(glr))
+			return utenti.put(id++, glr) == null;
+		return false;
 	}
 	@Override
 	public boolean registraAddettoCompere(AddettoCompere addetto) {
-		return utenti.put(id++, addetto) == null;
+		if(!this.utenti.containsValue(addetto))
+			return utenti.put(id++, addetto) == null;
+		return false;
 	}
 	@Override
 	public Map<Integer, Utente> getAllUtenti() {
