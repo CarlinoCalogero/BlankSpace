@@ -10,11 +10,20 @@ import it.univaq.disim.oop.blankspace.domain.Utente;
 
 public interface ServizioUtente {
 	public boolean registraUtente(Utente u);
+
+	public void aggiornaUtente(Utente utente);
+
 	public boolean registraGestoreLuogoRitrovo(GestoreLuogoDiRitrovo glr);
+
 	public boolean registraAddettoCompere(AddettoCompere addetto);
+
 	public Persona getUtente(String email, String password);
+
 	public GestoreSistema getGestoreSistema(String nickname, String password);
+
 	public Map<Integer, Utente> getAllUtenti();
+
 	public Map<Integer, GestoreLuogoDiRitrovo> getAllGestori();
+
 	public Map<Integer, AddettoCompere> getAllAddetti();
 }

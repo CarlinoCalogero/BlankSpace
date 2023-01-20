@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.AreaPacchettiController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
+               <children>
+                  <ImageView fx:id="creaPacchettoImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#creaPacchettoAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icone/ordinaCuttedSporco.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Nuovo pacchetto" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0">
+               <children>
+                  <ImageView fx:id="iMieiPacchettiImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#visualizzaIMieiPacchettiAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icone/ordinaCuttedSporco.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="I miei pacchetti" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutAction" prefHeight="35.0" prefWidth="83.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Esci">
+               <VBox.margin>
+                  <Insets right="20.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

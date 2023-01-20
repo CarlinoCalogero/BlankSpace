@@ -17,6 +17,14 @@ public class Utente extends Persona {
 		pacchettiProdotti = new ArrayList<PacchettoProdotti>();
 	}
 
+	public Utente(int id, String nome, String cognome, LocalDate dataNascita, String email, String telefono,
+			String password, String residenza) {
+		super(nome, cognome, dataNascita, email, telefono, password);
+		this.id = id;
+		this.residenza = residenza;
+		pacchettiProdotti = new ArrayList<PacchettoProdotti>();
+	}
+
 	public void addNewPacchetto(PacchettoProdotti p) {
 		this.pacchettiProdotti.add(p);
 	}
@@ -24,7 +32,7 @@ public class Utente extends Persona {
 	public boolean removePacchettoProdotti(PacchettoProdotti p) {
 		return this.pacchettiProdotti.remove(p);
 	}
-	
+
 	public Set<Ordine> getOrdini() {
 		return ordini;
 	}
