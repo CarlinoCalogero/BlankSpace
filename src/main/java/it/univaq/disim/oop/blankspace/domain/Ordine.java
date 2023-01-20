@@ -16,12 +16,13 @@ public class Ordine implements Comparable<Ordine> {
 	private Double totaleSpeso = 0.0;
 	private StatoOrdine stato;
 	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
+	private Utente utente;
 
 	public Ordine() {
 
 	}
 
-	public Ordine(Integer id, LocalDate dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
+	public Ordine(Integer id ,LocalDate dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
 		this.id = id;
 		this.dataOrdinazione = dataOrdinazione;
 		this.totaleSpeso = totaleSpeso;
@@ -34,6 +35,14 @@ public class Ordine implements Comparable<Ordine> {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
 	}
 
 	public LocalDate getDataOrdinazione() {
