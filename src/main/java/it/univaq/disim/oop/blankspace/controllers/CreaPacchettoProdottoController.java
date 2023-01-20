@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CreaPacchettoProdottoController
-		implements Initializable, DataInitalizable<WrapperInterVista<Persona, PacchettoProdotti>> {
+		implements Initializable, DataInitalizable<WrapperInterVista<Persona, PacchettoProdotti, Object, Object>> {
 
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private Persona persona;
@@ -103,7 +103,8 @@ public class CreaPacchettoProdottoController
 					return;
 				this.pacchettoProdotti.aggiungiProdottoAlPacchetto(row.getItem());
 				dispatcher.renderVista("CreaPacchettoProdotto",
-						new WrapperInterVista<Persona, PacchettoProdotti>(persona, this.pacchettoProdotti));
+						new WrapperInterVista<Persona, PacchettoProdotti, Object, Object>(persona,
+								this.pacchettoProdotti, null, null));
 
 			});
 			return row;
@@ -137,7 +138,8 @@ public class CreaPacchettoProdottoController
 			button.setOnAction((ActionEvent e) -> {
 				this.pacchettoProdotti.rimuoviProdottoAlPacchetto(param.getValue());
 				dispatcher.renderVista("CreaPacchettoProdotto",
-						new WrapperInterVista<Persona, PacchettoProdotti>(persona, this.pacchettoProdotti));
+						new WrapperInterVista<Persona, PacchettoProdotti, Object, Object>(persona,
+								this.pacchettoProdotti, null, null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);
@@ -150,7 +152,7 @@ public class CreaPacchettoProdottoController
 	}
 
 	@Override
-	public void initializeData(WrapperInterVista<Persona, PacchettoProdotti> wrapper) {
+	public void initializeData(WrapperInterVista<Persona, PacchettoProdotti, Object, Object> wrapper) {
 		this.persona = wrapper.getDato1();
 
 		// check if we have just added a Prodotto

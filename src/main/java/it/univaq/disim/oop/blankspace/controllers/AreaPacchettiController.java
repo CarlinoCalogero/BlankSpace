@@ -40,7 +40,7 @@ public class AreaPacchettiController implements Initializable, DataInitalizable<
 
 	public void creaPacchettoAction() {
 		dispatcher.renderVista("CreaPacchettoProdotto",
-				new WrapperInterVista<Persona, PacchettoProdotti>(persona, null));
+				new WrapperInterVista<Persona, PacchettoProdotti, Object, Object>(persona, null, null, null));
 	}
 
 	public void visualizzaIMieiPacchettiAction() {
