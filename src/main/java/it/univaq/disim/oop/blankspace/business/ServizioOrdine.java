@@ -15,8 +15,6 @@ public interface ServizioOrdine {
 
 	public void aggiornaOrdine(Ordine ordine);
 	
-	public void creaOrdineFromPacchetto(Ordine ordine, PacchettoProdotti pacchetto);
-	
 	public Map<Integer,Ordine> getOrdiniFromUtente(Utente utente);
 	
 	public Map<Integer,Ordine> getOrdiniFromGLR(GestoreLuogoDiRitrovo glr);

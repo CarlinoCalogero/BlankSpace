@@ -60,14 +60,4 @@ public class RAMServizioOrdine implements ServizioOrdine {
 
 		return ordiniGlr;
 	}
-
-	@Override
-	public void creaOrdineFromPacchetto(Ordine ordine, PacchettoProdotti pacchetto) {
-		creaOrdine(ordine);
-		for(Prodotto prodotto : pacchetto.getInsiemeProdotti()) {
-			ordine.getListProdotti().add(new ProdottoConQuantità(prodotto, "1"));
-			ordine.setTotaleSpeso(ordine.getTotaleSpeso() + prodotto.getPrezzo());
-		}
-		
-	}
 }
