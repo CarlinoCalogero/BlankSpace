@@ -11,7 +11,7 @@ import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -93,7 +93,7 @@ public class MieiPacchettiProdottoController
 				ordine.setStato(StatoOrdine.ATTIVO);
 				ordine.setUtente(utente);
 				for(Prodotto prodotto : param.getValue().getInsiemeProdotti()) {
-					ordine.aggiungiProdottoRichiesto(new ProdottoConQuantità(prodotto, "1"));
+					ordine.aggiungiProdottoRichiesto(new ProdottoConQuantita(prodotto, "1"));
 					ordine.setTotaleSpeso(ordine.getTotaleSpeso() + prodotto.getPrezzo());
 				}
 				servizioOrdine.aggiornaOrdine(ordine);

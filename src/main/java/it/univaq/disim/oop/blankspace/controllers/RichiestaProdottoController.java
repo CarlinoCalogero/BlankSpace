@@ -8,9 +8,8 @@ import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -80,7 +79,7 @@ public class RichiestaProdottoController
 		prodotto.setMedicinale(false);
 		prodotto.setNegozio(negozioComboBox.getValue());
 		prodotto.setNome(nomeProdottoTextField.getText());
-		this.ordine.aggiungiProdottoRichiesto(new ProdottoConQuantità(prodotto, quantitaTextField.getText()));
+		this.ordine.aggiungiProdottoRichiesto(new ProdottoConQuantita(prodotto, quantitaTextField.getText()));
 		servizioOrdine.aggiornaOrdine(ordine);
 		dispatcher.renderVista("Ordine", new WrapperInterVista<Utente,GestoreLuogoDiRitrovo,Ordine,Prodotto>(this.utente,this.glr ,ordine,null));
 	}
