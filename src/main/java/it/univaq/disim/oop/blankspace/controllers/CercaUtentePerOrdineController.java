@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioUtente;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
+import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -26,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CercaUtentePerOrdineController implements Initializable, DataInitalizable<GestoreLuogoDiRitrovo> {
 
-	private GestoreLuogoDiRitrovo utente;
+	private GestoreLuogoDiRitrovo gestore;
 	private ServizioUtente servizioUtente = BusinessFactory.getImplementation().getServizioUtente();
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 
@@ -72,8 +74,7 @@ public class CercaUtentePerOrdineController implements Initializable, DataInital
 			final Button dettagliButton = new Button("Seleziona");
 			dettagliButton.setOnAction((ActionEvent e) -> {
 				try {
-					dispatcher.renderVista("Home", param.getValue());
-					System.out.println("Selezionato: " + param.getValue().toString());
+					dispatcher.renderVista("Ordine",new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(param.getValue(), this.gestore, null, null));
 				} catch (Exception e1) {
 					e1.printStackTrace();
 					System.exit(0);
@@ -87,7 +88,7 @@ public class CercaUtentePerOrdineController implements Initializable, DataInital
 
 	@Override
 	public void initializeData(GestoreLuogoDiRitrovo utente) {
-		this.utente = utente;
+		this.gestore = utente;
 	}
 
 	@FXML
@@ -108,7 +109,7 @@ public class CercaUtentePerOrdineController implements Initializable, DataInital
 
 	@FXML
 	private void indietro() {
-		dispatcher.renderVista("HomeGLR", utente);
+		dispatcher.renderVista("HomeGLR", gestore);
 	}
 
 }
