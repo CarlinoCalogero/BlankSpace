@@ -43,7 +43,8 @@ public class HomeGLRController implements Initializable, DataInitalizable<Gestor
 	
 	@FXML
 	private void accediAreaOrdini() {
-		dispatcher.renderVista("MieiOrdini", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(null,this.utente, null, null));
+		System.out.println("OK");
+		dispatcher.renderVista("OrdiniGLR", utente);
 	}
 	
 	@FXML
