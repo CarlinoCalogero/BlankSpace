@@ -1,7 +1,6 @@
 package it.univaq.disim.oop.blankspace.domain;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,7 +13,7 @@ public class Ordine implements Comparable<Ordine> {
 
 	private Integer id;
 	private LocalDate dataOrdinazione;
-	private Double totaleSpeso;
+	private Double totaleSpeso = 0.0;
 	private StatoOrdine stato;
 	private Set<ProdottoConQuantità> listProdotti = new HashSet<>();
 

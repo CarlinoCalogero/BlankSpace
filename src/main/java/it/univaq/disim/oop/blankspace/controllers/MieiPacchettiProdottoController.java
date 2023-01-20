@@ -4,8 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
-import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
-import it.univaq.disim.oop.blankspace.domain.Ordine;
+import it.univaq.disim.oop.blankspace.business.ServizioUtente;
 import it.univaq.disim.oop.blankspace.domain.PacchettoProdotti;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -22,13 +21,12 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class MieiPacchettiProdotto
+public class MieiPacchettiProdottoController
 		implements Initializable, DataInitalizable<WrapperInterVista<Utente, Object, Object, Object>> {
 
 	private Utente utente;
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
-	private BusinessFactory factory = BusinessFactory.getImplementation();
-	private ServizioOrdine servizioOrdine = factory.getServizioOrdine();
+	private ServizioUtente servizioUtente = BusinessFactory.getImplementation().getServizioUtente();
 
 	@FXML
 	private Button logoutButton;
@@ -37,7 +35,7 @@ public class MieiPacchettiProdotto
 	private Button indietroButton;
 
 	@FXML
-	private TableView<PacchettoProdotti> ordinipacchettiTableViewTabella;
+	private TableView<PacchettoProdotti> pacchettiTableView;
 
 	@FXML
 	private TableColumn<PacchettoProdotti, Button> eliminaButtonTableColumn;
@@ -65,7 +63,10 @@ public class MieiPacchettiProdotto
 		eliminaButtonTableColumn.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Elimina");
 			button.setOnAction((ActionEvent e) -> {
-
+				this.utente.removePacchettoProdotti(param.getValue());
+				servizioUtente.aggiornaUtente(this.utente);
+				dispatcher.renderVista("MieiPacchettiProdotto",
+						new WrapperInterVista<Utente, Object, Object, Object>(this.utente, null, null, null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);
@@ -73,11 +74,12 @@ public class MieiPacchettiProdotto
 	}
 
 	@Override
-	public void initializeData(Utente utente) {
-		this.utente = utente;
+	public void initializeData(WrapperInterVista<Utente, Object, Object, Object> wrapper) {
+		this.utente = wrapper.getDato1();
 
-		ObservableList<Ordine> pacchettiProdottoData = FXCollections.observableArrayList();
-		ordiniTabella.setItems((ObservableList<Ordine>) ordiniData);
+		ObservableList<PacchettoProdotti> pacchettiProdottoData = FXCollections
+				.observableArrayList(this.utente.getPacchettiProdotti());
+		pacchettiTableView.setItems((ObservableList<PacchettoProdotti>) pacchettiProdottoData);
 	}
 
 	public void logoutAction(ActionEvent event) {

@@ -1,6 +1,7 @@
 package it.univaq.disim.oop.blankspace.controllers;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
@@ -10,10 +11,10 @@ import it.univaq.disim.oop.blankspace.domain.Categoria;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
+import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
@@ -136,6 +137,11 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
 		});
+		
+		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, String> param) -> {
+			if(param.getValue().getProdotto() instanceof ProdottoRichiesto) return new SimpleObjectProperty<String>("Si");
+			return new SimpleObjectProperty<String>("No");
+		});
 		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantità, Categoria> param) -> {
 			return new SimpleObjectProperty<Categoria>(param.getValue().getProdotto().getCategoria());
 		});
@@ -158,7 +164,14 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 		// let's check if we have just added a ProdottoRichiesto
 		if (wrapper.getDato3() == null) {// we are creating a new order
-			this.ordine = servizioOrdine.creaOrdine(new Ordine());
+			Ordine ordine = new Ordine();
+			ordine.setStato(StatoOrdine.ATTIVO);
+			ordine.setDataOrdinazione(LocalDate.now());
+			this.ordine = servizioOrdine.creaOrdine(ordine);
+			if(wrapper.getDato2() != null) { //Sono entrato come gestore del luogo di ritrovo
+				wrapper.getDato1().getOrdini().add(ordine); //Aggiungo l'ordine anche al gestore del luogo di ritrovo
+			}
+			wrapper.getDato1().getOrdini().add(this.ordine);
 		} else { // we have just added a ProdottoRichiesto
 			this.ordine = wrapper.getDato3();
 		}
@@ -188,6 +201,7 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 	@FXML
 	private void esci(ActionEvent event) {
+		servizioOrdine.cancellaOrdine(this.ordine.getId());
 		dispatcher.renderVista("LogIn", null);
 	}
 
@@ -202,7 +216,11 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 	@FXML
 	private void confermaOrdine(ActionEvent event) {
-		System.out.println("Confermando ordine");
+		System.out.println(this.ordine.getTotaleSpeso());
+		if(this.gestore != null)
+			dispatcher.renderVista("HomeGLR", this.gestore);
+		else
+			dispatcher.renderVista("Home", this.utente);
 	}
 
 	@FXML

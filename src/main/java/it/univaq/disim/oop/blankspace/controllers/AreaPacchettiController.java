@@ -44,7 +44,8 @@ public class AreaPacchettiController implements Initializable, DataInitalizable<
 	}
 
 	public void visualizzaIMieiPacchettiAction() {
-
+		dispatcher.renderVista("MieiPacchettiProdotto",
+				new WrapperInterVista<Persona, Object, Object, Object>(persona, null, null, null));
 	}
 
 }

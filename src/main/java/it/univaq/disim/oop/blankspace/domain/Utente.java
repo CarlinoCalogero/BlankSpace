@@ -7,6 +7,15 @@ import java.util.Set;
 
 public class Utente extends Persona {
 	private String residenza;
+
+	public String getResidenza() {
+		return residenza;
+	}
+
+	public void setResidenza(String residenza) {
+		this.residenza = residenza;
+	}
+
 	private ArrayList<PacchettoProdotti> pacchettiProdotti;
 	private Set<Ordine> ordini = new HashSet<>();
 
@@ -31,6 +40,14 @@ public class Utente extends Persona {
 
 	public boolean removePacchettoProdotti(PacchettoProdotti p) {
 		return this.pacchettiProdotti.remove(p);
+	}
+
+	public Set<PacchettoProdotti> getPacchettiProdotti() {
+		return new HashSet<PacchettoProdotti>(this.pacchettiProdotti);
+	}
+
+	public void setPacchettiProdotti(ArrayList<PacchettoProdotti> pacchettiProdotti) {
+		this.pacchettiProdotti = pacchettiProdotti;
 	}
 
 	public Set<Ordine> getOrdini() {

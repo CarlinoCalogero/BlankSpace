@@ -1,14 +1,17 @@
 package it.univaq.disim.oop.blankspace.controllers;
 
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
+import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantità;
+import it.univaq.disim.oop.blankspace.domain.Persona;
+import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
 import it.univaq.disim.oop.blankspace.viste.DataInitalizable;
@@ -26,9 +29,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class MieiOrdiniController implements Initializable, DataInitalizable<Utente> {
+public class MieiOrdiniController
+		implements Initializable, DataInitalizable<WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>> {
 
 	private Utente utente;
+	private GestoreLuogoDiRitrovo glr;
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private BusinessFactory factory = BusinessFactory.getImplementation();
 	private ServizioOrdine servizioOrdine = factory.getServizioOrdine();
@@ -79,10 +84,18 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
 		statoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, StatoOrdine>("stato"));
 		totaleColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
-			String totale = param.getValue().getTotaleSpeso() + "€";
+
+			DecimalFormat df = new DecimalFormat("#.##");
+			df.setRoundingMode(RoundingMode.FLOOR);
+			String totale = df.format(param.getValue().getTotaleSpeso()) + "€";
 			return new SimpleObjectProperty<String>(totale);
 		});
-		indirizzoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, String>("residenza"));
+
+		indirizzoColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
+			String residenza = utente.getResidenza();
+			return new SimpleObjectProperty<String>(residenza);
+		});
+
 		dataColonna.setCellValueFactory(new PropertyValueFactory<Ordine, LocalDate>("dataOrdinazione"));
 		modificaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Modifica");
@@ -94,15 +107,26 @@ public class MieiOrdiniController implements Initializable, DataInitalizable<Ute
 		});
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
+			button.setOnAction(e -> {
+				servizioOrdine.cancellaOrdine(param.getValue().getId());
+			});
 			return new SimpleObjectProperty<Button>(button);
 		});
 	}
 
 	@Override
-	public void initializeData(Utente utente) {
-		this.utente = utente;
+	public void initializeData(WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto> wrapper) {
+		ObservableList<Ordine> ordiniData;
+
+		if (wrapper.getDato2() != null) { // sono un gestore di luogo di ritrovo
+			
+			this.glr = wrapper.getDato2();
+			ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromGLR(glr).values());
+		} else { //sono un utente
+			this.utente = wrapper.getDato1();
+			ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromUtente(utente).values());
+		}
 		
-		ObservableList<Ordine> ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromUtente(utente).values());
 		ordiniTabella.setItems((ObservableList<Ordine>) ordiniData);
 	}
 
