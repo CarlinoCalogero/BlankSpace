@@ -169,7 +169,7 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 			ordine.setDataOrdinazione(LocalDate.now());
 			this.ordine = servizioOrdine.creaOrdine(ordine);
 			if(wrapper.getDato2() != null) { //Sono entrato come gestore del luogo di ritrovo
-				wrapper.getDato1().getOrdini().add(ordine); //Aggiungo l'ordine anche al gestore del luogo di ritrovo
+				wrapper.getDato2().getOrdini().add(ordine); //Aggiungo l'ordine anche al gestore del luogo di ritrovo
 			}
 			wrapper.getDato1().getOrdini().add(this.ordine);
 		} else { // we have just added a ProdottoRichiesto
