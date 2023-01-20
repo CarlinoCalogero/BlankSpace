@@ -32,8 +32,8 @@ public class LogInAdminsController implements Initializable,DataInitalizable<Per
 			dispatcher.renderVista("HomeAdmins", logged);
 		} else {
 			errore.setText("Email o Password errata");
+			errore.setVisible(true);
 		}
-		errore.setVisible(true);
 	}
 	public void indietro() {
 		dispatcher.renderVista("LogIn", null);
