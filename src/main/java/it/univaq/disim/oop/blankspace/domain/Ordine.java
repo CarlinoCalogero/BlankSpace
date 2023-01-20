@@ -1,7 +1,9 @@
 package it.univaq.disim.oop.blankspace.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Ordine implements Comparable<Ordine> {
@@ -13,6 +15,7 @@ public class Ordine implements Comparable<Ordine> {
 	private Date dataOrdinazione;
 	private Double totaleSpeso;
 	private StatoOrdine stato;
+	private List<ProdottoRichiesto> listProdottoRichiesti = new ArrayList<>();
 
 	public Ordine(Integer id, Date dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
 		this.id = id;
@@ -78,4 +81,20 @@ public class Ordine implements Comparable<Ordine> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public List<ProdottoRichiesto> getListProdottoRichiesti() {
+		return listProdottoRichiesti;
+	}
+
+	public void setListProdottoRichiesti(List<ProdottoRichiesto> listProdottoRichiesti) {
+		this.listProdottoRichiesti = listProdottoRichiesti;
+	}
+
+	public boolean aggiungiProdottoRichiesto(ProdottoRichiesto prodotto) {
+		if (listProdottoRichiesti.contains(prodotto))
+			return false;
+		listProdottoRichiesti.add(prodotto);
+		return true;
+	}
+
 }
