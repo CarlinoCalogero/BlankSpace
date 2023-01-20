@@ -201,6 +201,7 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 	@FXML
 	private void esci(ActionEvent event) {
+		servizioOrdine.cancellaOrdine(this.ordine.getId());
 		dispatcher.renderVista("LogIn", null);
 	}
 
@@ -215,7 +216,11 @@ public class OrdineController implements Initializable, DataInitalizable<Wrapper
 
 	@FXML
 	private void confermaOrdine(ActionEvent event) {
-		System.out.println("Confermando ordine");
+		System.out.println(this.ordine.getTotaleSpeso());
+		if(this.gestore != null)
+			dispatcher.renderVista("HomeGLR", this.gestore);
+		else
+			dispatcher.renderVista("Home", this.utente);
 	}
 
 	@FXML
