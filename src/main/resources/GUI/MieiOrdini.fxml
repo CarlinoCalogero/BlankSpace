@@ -66,7 +66,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="ordiniTabella" prefHeight="356.0" prefWidth="834.0">
+            <TableView fx:id="ordiniTabella" prefHeight="356.0" prefWidth="834.0" stylesheets="@../style/table.css">
               <columns>
                 <TableColumn fx:id="nOrdineColonna" prefWidth="177.06668853759766" text="N. Ordine" />
                 <TableColumn fx:id="statoColonna" prefWidth="399.2000427246094" text="Stato" />

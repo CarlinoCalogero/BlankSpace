@@ -51,110 +51,143 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <VBox>
                <children>
-                  <Label text="Nome Prodotto: ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nomeProdotto" text="&lt;Nome Prodotto&gt; ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <Label text="Quantita: ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="quantita">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </TextField>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="985.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Prodotto: ">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nomeProdotto" prefHeight="46.0" prefWidth="278.0" text="&lt;Nome Prodotto&gt; ">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
+                     <children>
+                        <Label text="Categoria:">
+                           <font>
+                              <Font name="System Italic" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="categoria" text="&lt;Categoria&gt; ">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
+                     <children>
+                        <Label text="Negozio:">
+                           <font>
+                              <Font name="System Italic" size="29.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="negozio" text="&lt;Negozio&gt; ">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="192.0" prefWidth="518.0">
+                     <children>
+                        <TextArea fx:id="descrizione" prefHeight="142.0" prefWidth="423.0" promptText="Descrizione...">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0">
                <children>
-                  <Label text="Categoria:">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="categoria" text="&lt;Categoria&gt; ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="985.0">
+                     <children>
+                        <HBox prefHeight="47.0" prefWidth="592.0">
+                           <HBox.margin>
+                              <Insets top="60.0" />
+                           </HBox.margin>
+                           <children>
+                              <Label text="Quantita: ">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="quantita">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="142.0" prefWidth="525.0">
+                     <children>
+                        <Button fx:id="aggiungiBottone" alignment="CENTER" mnemonicParsing="false" onAction="#aggiungiProdottoAllOrdine" prefHeight="54.0" prefWidth="119.0" stylesheets="@../style/button.css" text="Aggiungi all'Ordine" textAlignment="CENTER" textFill="#5f6569" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="filter-button" />
+                              <String fx:value="richiedi-button" />
+                           </styleClass>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="annullaBottone" mnemonicParsing="false" onAction="#annulla" prefHeight="52.0" prefWidth="97.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Annulla" textFill="#5f6569">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
                </children>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="39.0" prefWidth="1034.0">
-               <children>
-                  <Label text="Negozio:">
-                     <font>
-                        <Font name="System Bold Italic" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="negozio" text="&lt;Negozio&gt; ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="142.0" prefWidth="985.0">
-               <children>
-                  <Label text="Descrizione: ">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="descrizione" prefHeight="46.0" prefWidth="267.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextArea>
-                  <Button fx:id="aggiungiBottone" alignment="CENTER" mnemonicParsing="false" onAction="#aggiungiProdottoAllOrdine" prefHeight="54.0" prefWidth="119.0" stylesheets="@../style/button.css" text="Aggiungi all'Ordine" textAlignment="CENTER" textFill="#5f6569" wrapText="true">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="filter-button" />
-                        <String fx:value="richiedi-button" />
-                     </styleClass>
-                     <HBox.margin>
-                        <Insets left="230.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="annullaBottone" mnemonicParsing="false" onAction="#annulla" prefHeight="52.0" prefWidth="97.0" styleClass="exit-button" stylesheets="@../style/button.css" text="Annulla" textFill="#5f6569">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </HBox>
    </center>
 </BorderPane>

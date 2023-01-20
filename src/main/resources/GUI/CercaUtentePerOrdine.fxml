@@ -66,13 +66,13 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="utentiTabella" prefHeight="356.0" prefWidth="834.0">
+            <TableView fx:id="utentiTabella" prefHeight="356.0" prefWidth="834.0" stylesheets="@../style/table.css">
               <columns>
-                <TableColumn fx:id="nomeColonna" editable="false" prefWidth="93.6000007390976" resizable="false" text="NOME" />
-                <TableColumn fx:id="cognomeColonna" editable="false" prefWidth="91.9999771118164" resizable="false" text="COGNOME" />
-                  <TableColumn fx:id="emailColonna" editable="false" minWidth="9.5999755859375" prefWidth="168.8000030517578" resizable="false" text="EMAIL" />
-                  <TableColumn fx:id="cellulareColonna" editable="false" prefWidth="92.79998779296875" resizable="false" text="CELLULARE" />
-                  <TableColumn fx:id="dataColonna" editable="false" prefWidth="155.99996948242188" resizable="false" text="DATA DI NASCITA" />
+                <TableColumn fx:id="nomeColonna" editable="false" prefWidth="93.6000007390976" resizable="false" text="Nome" />
+                <TableColumn fx:id="cognomeColonna" editable="false" prefWidth="91.9999771118164" resizable="false" text="Cognome" />
+                  <TableColumn fx:id="emailColonna" editable="false" minWidth="9.5999755859375" prefWidth="168.8000030517578" resizable="false" text="E-mail" />
+                  <TableColumn fx:id="cellulareColonna" editable="false" prefWidth="92.79998779296875" resizable="false" text="Cellulare" />
+                  <TableColumn fx:id="dataColonna" editable="false" prefWidth="155.99996948242188" resizable="false" text="Data di nascita" />
                   <TableColumn fx:id="seleziona" maxWidth="178.39996337890625" minWidth="70.0" prefWidth="178.39996337890625" resizable="false" />
               </columns>
                <columnResizePolicy>

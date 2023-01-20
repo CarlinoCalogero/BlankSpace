@@ -29,20 +29,19 @@ public class ProdottoConQuantità implements Comparable<ProdottoConQuantità>{
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if(obj == null || !(obj instanceof ProdottoConQuantità)) return false;
+		ProdottoConQuantità pr = (ProdottoConQuantità)obj;
+		return this.id.equals(pr.id);
 	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return prodotto.toString()+ ":" + quantità;
 	}
 
 	@Override
 	public int compareTo(ProdottoConQuantità o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return id.compareTo(o.getId());
 	}
 
 	public Integer getId() {

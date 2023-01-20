@@ -48,7 +48,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <TableView fx:id="pacchettiTableView" layoutX="117.0" layoutY="36.0" prefHeight="353.0" prefWidth="800.0">
+            <TableView fx:id="pacchettiTableView" layoutX="117.0" layoutY="36.0" prefHeight="353.0" prefWidth="800.0" stylesheets="@../style/table.css">
                <columns>
                   <TableColumn fx:id="nomeTableColumn" prefWidth="609.0" text="Nome" />
                   <TableColumn fx:id="apriButtonTableColumn" maxWidth="414.0" minWidth="70.0" prefWidth="112.0" resizable="false" text="Apri" />

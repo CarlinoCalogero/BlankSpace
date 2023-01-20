@@ -86,14 +86,12 @@ public class Ordine implements Comparable<Ordine> {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return listProdotti.toString();
 	}
 
 	@Override
 	public int compareTo(Ordine o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.id.compareTo(o.id);
 	}
 
 	public Set<ProdottoConQuantità> getListProdotti() {

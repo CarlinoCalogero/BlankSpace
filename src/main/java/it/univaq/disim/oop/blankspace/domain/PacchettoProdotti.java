@@ -3,7 +3,7 @@ package it.univaq.disim.oop.blankspace.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PacchettoProdotti implements Comparable<PacchettoProdotti> {
+public class PacchettoProdotti {
 
 	private Set<Prodotto> insiemeProdotti = new HashSet<>();
 	private String nome;
@@ -41,19 +41,13 @@ public class PacchettoProdotti implements Comparable<PacchettoProdotti> {
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if(obj == null || !(obj instanceof PacchettoProdotti)) return false;
+		PacchettoProdotti pp = (PacchettoProdotti)obj;
+		return this.insiemeProdotti.equals(pp.getInsiemeProdotti()) && this.nome.equals(pp.getNome());
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
-
-	@Override
-	public int compareTo(PacchettoProdotti o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getInsiemeProdotti().toString();
 	}
 }

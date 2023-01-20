@@ -67,7 +67,7 @@
                               <Button fx:id="filtraBottone" mnemonicParsing="false" onAction="#filtra" prefHeight="32.0" prefWidth="74.0" styleClass="filter-button" stylesheets="@../style/button.css" text="Filtra" />
                            </children>
                         </HBox>
-                        <TableView fx:id="prodottiTabella" prefHeight="257.0" prefWidth="565.0">
+                        <TableView fx:id="prodottiTabella" prefHeight="257.0" prefWidth="565.0" stylesheets="@../style/table.css">
                            <columns>
                               <TableColumn fx:id="prodottoColonna" prefWidth="177.06668853759766" text="Prodotto" />
                               <TableColumn fx:id="negozioColonna" prefWidth="399.2000427246094" text="Negozio" />
@@ -103,8 +103,8 @@
                   </VBox>
                   <VBox prefHeight="361.0" prefWidth="208.0">
                      <children>
-                        <Label prefHeight="58.0" prefWidth="216.0" text="Clicca per aggiungere" />
-                        <TableView fx:id="catalogoTabella" prefHeight="249.0" prefWidth="180.0">
+                        <Label prefHeight="50.0" prefWidth="203.0" text="Clicca per aggiungere" />
+                        <TableView fx:id="catalogoTabella" prefHeight="262.0" prefWidth="203.0" stylesheets="@../style/table.css">
                            <columns>
                               <TableColumn fx:id="negozioCatalogoColonna" prefWidth="98.39996337890625" text="Negozio" />
                               <TableColumn fx:id="prodottoCatalogoColonna" prefWidth="116.79996490478516" text="Prodotto" />

@@ -66,33 +66,40 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </HBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="474.0" prefWidth="1034.0">
+            <VBox alignment="CENTER" prefHeight="474.0" prefWidth="1034.0">
                <children>
-                  <TableView fx:id="ordiniTabella" prefHeight="397.0" prefWidth="1034.0">
+                  <TableView fx:id="ordiniTabella" prefHeight="378.0" prefWidth="879.0" stylesheets="@../style/table.css">
                      <columns>
                         <TableColumn fx:id="nOrdineColonna" prefWidth="177.06668853759766" text="N. Ordine" />
                         <TableColumn fx:id="utenteColonna" prefWidth="399.2000427246094" text="Utente" />
                         <TableColumn fx:id="statoColonna" prefWidth="399.2000427246094" text="Stato" />
                         <TableColumn fx:id="totaleColonna" prefWidth="399.2000427246094" text="Totale" />
-                        <TableColumn fx:id="dataColonna" prefWidth="399.2000427246094" text="Data" />
-                        <TableColumn fx:id="modificaColonna" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" />
-                        <TableColumn fx:id="annullaColonna" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" />
+                        <TableColumn fx:id="dataColonna" prefWidth="149.59991455078125" text="Data" />
+                        <TableColumn fx:id="modificaColonna" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" />
+                        <TableColumn fx:id="annullaColonna" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
                      </columns>
+                     <VBox.margin>
+                        <Insets left="40.0" right="40.0" />
+                     </VBox.margin>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                     </VBox.margin>
                   </TableView>
-                  <Button fx:id="indietroBottone" mnemonicParsing="false" onAction="#indietro" prefHeight="63.0" prefWidth="225.0" styleClass="filter-button" stylesheets="@../style/button.css" text="Indietro" textFill="#5f6569">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
+                  <HBox alignment="TOP_RIGHT">
                      <VBox.margin>
-                        <Insets right="100.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Button>
+                     <children>
+                        <Button fx:id="indietroBottone" mnemonicParsing="false" onAction="#indietro" prefHeight="63.0" prefWidth="225.0" styleClass="filter-button" stylesheets="@../style/button.css" text="Indietro" textFill="#5f6569">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="40.0" top="7.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

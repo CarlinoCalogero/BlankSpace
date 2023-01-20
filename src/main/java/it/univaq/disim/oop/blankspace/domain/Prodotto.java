@@ -72,13 +72,11 @@ public class Prodotto implements Comparable<Prodotto> {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return nome;
 	}
 
 	@Override
 	public int compareTo(Prodotto o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.nome.compareTo(o.nome);
 	}
 }
