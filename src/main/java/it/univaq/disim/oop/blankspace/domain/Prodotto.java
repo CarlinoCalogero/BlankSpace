@@ -66,7 +66,7 @@ public class Prodotto implements Comparable<Prodotto> {
 			return false;
 		Prodotto prod = (Prodotto) obj;
 		return this.nome.equals(prod.nome) && this.descrizione.equals(prod.descrizione)
-				&& this.categoria.equals(prod.categoria) && this.negozio.equals(prod.negozio)
+				&& this.negozio.equals(prod.negozio)
 				&& this.prezzo.equals(prod.prezzo);
 	}
 

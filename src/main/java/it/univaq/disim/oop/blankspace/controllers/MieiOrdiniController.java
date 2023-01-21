@@ -81,8 +81,12 @@ public class MieiOrdiniController
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		nOrdineColonna.setStyle("-fx-alignment: CENTER;");
 		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
 		statoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, StatoOrdine>("stato"));
+		statoColonna.setStyle("-fx-alignment: CENTER;");
+		totaleColonna.setStyle("-fx-alignment: CENTER;");
 		totaleColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
 
 			DecimalFormat df = new DecimalFormat("#.##");
@@ -90,25 +94,33 @@ public class MieiOrdiniController
 			String totale = df.format(param.getValue().getTotaleSpeso()) + "€";
 			return new SimpleObjectProperty<String>(totale);
 		});
-
+		indirizzoColonna.setStyle("-fx-alignment: CENTER;");
 		indirizzoColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
 			String residenza = utente.getResidenza();
 			return new SimpleObjectProperty<String>(residenza);
 		});
-
+		dataColonna.setStyle("-fx-alignment: CENTER;");
 		dataColonna.setCellValueFactory(new PropertyValueFactory<Ordine, LocalDate>("dataOrdinazione"));
+		modificaColonna.setStyle("-fx-alignment: CENTER;");
 		modificaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Modifica");
+			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
 			return new SimpleObjectProperty<Button>(button);
 		});
+		dettagliColonna.setStyle("-fx-alignment: CENTER;");
 		dettagliColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Dettagli");
+			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
 			return new SimpleObjectProperty<Button>(button);
 		});
+		annullaColonna.setStyle("-fx-alignment: CENTER;");
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
+			button.setStyle("-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
 			button.setOnAction(e -> {
 				servizioOrdine.cancellaOrdine(param.getValue().getId());
+				utente.getOrdini().remove(param.getValue());
+				dispatcher.renderVista("Home", utente);
 			});
 			return new SimpleObjectProperty<Button>(button);
 		});
@@ -137,7 +149,7 @@ public class MieiOrdiniController
 
 	@FXML
 	private void esci() {
-		System.out.println("Facendo il logout...");
+		dispatcher.renderVista("LogIn", null);
 	}
 
 	@FXML

@@ -74,19 +74,25 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
+		nOrdineColonna.setStyle("-fx-alignment: CENTER;");
 
+		utenteColonna.setStyle("-fx-alignment: CENTER;");
 		utenteColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
 			return new SimpleObjectProperty<String>(
 					param.getValue().getUtente().getNome() + " " + param.getValue().getUtente().getCognome());
 		});
+		dataColonna.setStyle("-fx-alignment: CENTER;");
 		dataColonna.setCellValueFactory(new PropertyValueFactory<Ordine, LocalDate>("dataOrdinazione"));
+		statoColonna.setStyle("-fx-alignment: CENTER;");
 		statoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, StatoOrdine>("stato"));
+		totaleColonna.setStyle("-fx-alignment: CENTER;");
 		totaleColonna.setCellValueFactory((CellDataFeatures<Ordine, String> param) -> {
 			DecimalFormat df = new DecimalFormat("#.##");
 			df.setRoundingMode(RoundingMode.FLOOR);
 			String totale = df.format(param.getValue().getTotaleSpeso()) + "€";
 			return new SimpleObjectProperty<String>(totale);
 		});
+		modificaColonna.setStyle("-fx-alignment: CENTER;");
 		modificaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Modifica");
 			button.setOnAction((ActionEvent e)->{
@@ -94,6 +100,7 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 			});
 			return new SimpleObjectProperty<Button>(button);
 		});
+		annullaColonna.setStyle("-fx-alignment: CENTER;");
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
 			button.setOnAction(e -> {

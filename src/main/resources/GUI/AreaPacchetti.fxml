@@ -18,7 +18,7 @@
                <children>
                   <ImageView fx:id="creaPacchettoImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#creaPacchettoAction" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/ordinaCuttedSporco.png" />
+                        <Image url="@../icone/nuovoPacchetto.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Nuovo pacchetto" textAlignment="CENTER">
@@ -35,7 +35,7 @@
                <children>
                   <ImageView fx:id="iMieiPacchettiImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#visualizzaIMieiPacchettiAction" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/ordinaCuttedSporco.png" />
+                        <Image url="@../icone/pacchetto.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="I miei pacchetti" textAlignment="CENTER">

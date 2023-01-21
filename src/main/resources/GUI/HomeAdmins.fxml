@@ -18,7 +18,7 @@
                <children>
                   <ImageView fx:id="addAddetto" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#addAddetto" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/CreaAdetto.png" />
+                        <Image url="@../icone/gestoreSistema.png" />
                      </image>
                   </ImageView>
                   <Label alignment="TOP_CENTER" prefHeight="92.0" prefWidth="300.0" text="Crea Addetto alle compere" textAlignment="CENTER" wrapText="true">
@@ -38,7 +38,7 @@
                <children>
                   <ImageView fx:id="addGLR" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#addGestoreLuogoDiRitrovo" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/CreaGLR.png" />
+                        <Image url="@../icone/gestoreSistema2.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="101.0" prefWidth="299.0" text="Crea Gestore Luogo di ritrovo" textAlignment="CENTER" wrapText="true">
@@ -55,7 +55,7 @@
                <children>
                   <ImageView fx:id="addProdotto" fitHeight="305.0" fitWidth="300.0" onMouseClicked="#addProdotto" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
+                        <Image url="@../icone/gestoreSistema3.png" />
                      </image>
                      <VBox.margin>
                         <Insets />

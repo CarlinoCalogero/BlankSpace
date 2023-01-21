@@ -13,7 +13,6 @@ import it.univaq.disim.oop.blankspace.domain.Negozio;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
-import it.univaq.disim.oop.blankspace.domain.ProdottoConQuantita;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
@@ -115,7 +114,7 @@ public class OrdineController
 			});
 			return row;
 		});
-
+		prodottoColonna.setStyle("-fx-alignment: CENTER;");
 		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			if (param.getValue().getProdotto() instanceof ProdottoRichiesto) {
 				ProdottoRichiesto pr = (ProdottoRichiesto) param.getValue().getProdotto();
@@ -123,40 +122,49 @@ public class OrdineController
 			} else
 				return new SimpleObjectProperty<String>("No");
 		});
+		quantitàColonna.setStyle("-fx-alignment: CENTER;");
 		quantitàColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			return new SimpleObjectProperty<String>(param.getValue().getQuantità());
 		});
+		negozioColonna.setStyle("-fx-alignment: CENTER;");
 		negozioColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Negozio> param) -> {
 			return new SimpleObjectProperty<Negozio>(param.getValue().getProdotto().getNegozio());
 		});
+		prodottoColonna.setStyle("-fx-alignment: CENTER;");
 		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			return new SimpleObjectProperty<String>(param.getValue().getProdotto().getNome());
 		});
-
+		pdfColonna.setStyle("-fx-alignment: CENTER;");
 		pdfColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Button> param) -> {
 			final Button button = new Button("Pdf");
+			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
 			// TODO: settare la funzione del bottone
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
 		});
-
+		richiestaColonna.setStyle("-fx-alignment: CENTER;");
 		richiestaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			if (param.getValue().getProdotto() instanceof ProdottoRichiesto)
 				return new SimpleObjectProperty<String>("Si");
 			return new SimpleObjectProperty<String>("No");
 		});
+		categoriaColonna.setStyle("-fx-alignment: CENTER;");
 		categoriaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Categoria> param) -> {
 			return new SimpleObjectProperty<Categoria>(param.getValue().getProdotto().getCategoria());
 		});
+		eliminaColonna.setStyle("-fx-alignment: CENTER;");
 		eliminaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Button> param) -> {
 			final Button button = new Button("Elimina");
+			button.setStyle("-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
 			// TODO: settare la funzione del bottone
 			// button.setOnAction();
 			return new SimpleObjectProperty<Button>(button);
 		});
 
 		/* Seconda tabella */
+		negozioCatalogoColonna.setStyle("-fx-alignment: CENTER;");
 		negozioCatalogoColonna.setCellValueFactory(new PropertyValueFactory<Prodotto, Negozio>("negozio"));
+		prodottoCatalogoColonna.setStyle("-fx-alignment: CENTER;");
 		prodottoCatalogoColonna.setCellValueFactory(new PropertyValueFactory<Prodotto, String>("nome"));
 
 	}

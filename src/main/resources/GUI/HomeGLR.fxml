@@ -18,7 +18,7 @@
                <children>
                   <ImageView fx:id="datiPersonali" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/datipersonaliCuttedSporco.png" />
+                        <Image url="@../icone/datiPersonali.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
@@ -35,7 +35,7 @@
                <children>
                   <ImageView fx:id="creaOrdine" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#selezionaUtente" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/ordinaCuttedSporco.png" />
+                        <Image url="@../icone/ordina.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Crea Ordine" textAlignment="CENTER">
@@ -52,7 +52,7 @@
                <children>
                   <ImageView fx:id="visualizzaOrdini" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#accediAreaOrdini" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
+                        <Image url="@../icone/gestoreSistema3.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="31.0" prefWidth="298.0" text="Ordini" textAlignment="CENTER">

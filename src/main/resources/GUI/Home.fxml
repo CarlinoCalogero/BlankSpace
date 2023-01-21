@@ -18,15 +18,21 @@
                <children>
                   <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0" prefWidth="235.0">
                      <children>
-                        <ImageView fx:id="pacchetti" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPacchetti" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pacchetti" fitHeight="240.0" fitWidth="240.0" onMouseClicked="#accediAreaPacchetti" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icone/ordinaCuttedSporco.png" />
+                              <Image url="@../icone/pacchetto.png" />
                            </image>
+                           <VBox.margin>
+                              <Insets top="-10.0" />
+                           </VBox.margin>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Pacchetti" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="34.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets top="-10.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                      <HBox.margin>
@@ -37,7 +43,7 @@
                      <children>
                         <ImageView fx:id="iMieiOrdini" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaMieiOrdini" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icone/imieiOrdiniCuttedSporco.png" />
+                              <Image url="@../icone/gestoreSistema3.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="31.0" prefWidth="298.0" text="I miei ordini" textAlignment="CENTER">
@@ -69,7 +75,7 @@
                      <children>
                         <ImageView fx:id="datiPersonali1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaPersonale" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icone/datipersonaliCuttedSporco.png" />
+                              <Image url="@../icone/datiPersonali.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="31.0" prefWidth="306.0" text="Dati personali" textAlignment="CENTER">
@@ -86,7 +92,7 @@
                      <children>
                         <ImageView fx:id="ordina1" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#accediAreaOrdine" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icone/ordinaCuttedSporco.png" />
+                              <Image url="@../icone/ordina.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Ordina" textAlignment="CENTER">
