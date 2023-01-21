@@ -98,7 +98,7 @@
                         </TableView>
                         <HBox>
                            <children>
-                              <Button fx:id="richiediBottone" mnemonicParsing="false" onAction="#richiediProdotto" prefHeight="44.0" prefWidth="181.0" stylesheets="@../style/button.css" text="Richiedi prodotto" textFill="#5f6569">
+                              <Button fx:id="richiediBottone" mnemonicParsing="false" onAction="#richiediProdotto" prefHeight="41.0" prefWidth="281.0" stylesheets="@../style/button.css" text="Richiedi prodotto" textFill="#5f6569">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -107,7 +107,15 @@
                                     <String fx:value="richiedi-button" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="confermaBottone" mnemonicParsing="false" onAction="#confermaOrdine" prefHeight="52.0" prefWidth="180.0" stylesheets="@../style/button.css" text="Conferma ordine" textFill="#5f6569">
+                              <Label fx:id="errore" prefHeight="41.0" prefWidth="194.0" text="Aggiungere almeno un prodotto" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="confermaBottone" mnemonicParsing="false" onAction="#confermaOrdine" prefHeight="41.0" prefWidth="244.0" stylesheets="@../style/button.css" text="Conferma ordine" textFill="#5f6569">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -116,7 +124,7 @@
                                     <String fx:value="richiedi-button" />
                                  </styleClass>
                                  <HBox.margin>
-                                    <Insets left="210.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </Button>
                            </children>

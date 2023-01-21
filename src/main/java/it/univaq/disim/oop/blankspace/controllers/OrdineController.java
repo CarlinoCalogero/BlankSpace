@@ -43,6 +43,7 @@ public class OrdineController
 
 	private ServizioOrdine servizioOrdine = BusinessFactory.getImplementation().getServizioOrdine();
 	private ProdottiService prodottiService = BusinessFactory.getImplementation().getProdottiService();
+	private ObservableList<ProdottoConQuantita> prodottiInOrdine = FXCollections.emptyObservableList();
 
 	@FXML
 	private Button annullaBottono;
@@ -60,7 +61,7 @@ public class OrdineController
 	private Button richiediBottone;
 
 	@FXML
-	private Label dataEtichetta;
+	private Label dataEtichetta, errore;
 
 	@FXML
 	private TableView<ProdottoConQuantita> ordineTabella;
@@ -156,8 +157,14 @@ public class OrdineController
 		eliminaColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, Button> param) -> {
 			final Button button = new Button("Elimina");
 			button.setStyle("-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
-			// TODO: settare la funzione del bottone
-			// button.setOnAction();
+			button.setOnAction((ActionEvent e)->{
+				this.ordine.rimuoviProdottoRichiesto(param.getValue());
+				this.servizioOrdine.aggiornaOrdine(ordine);
+				prodottiInOrdine = FXCollections
+						.observableArrayList(this.ordine.getListProdotti());
+				this.ordineTabella.setItems(prodottiInOrdine);
+			});
+			//System.out.println("Ciao"+this.ordine.getListProdotti());
 			return new SimpleObjectProperty<Button>(button);
 		});
 
@@ -188,9 +195,9 @@ public class OrdineController
 			ObservableList<Prodotto> prodottiData = FXCollections.observableArrayList(prodottiService.getAllProdotti());
 			catalogoTabella.setItems((ObservableList<Prodotto>) prodottiData);
 
-			ObservableList<ProdottoConQuantita> prodottiOrdinatiData = FXCollections
+			this.prodottiInOrdine = FXCollections
 					.observableArrayList(this.ordine.getListProdotti());
-			ordineTabella.setItems((ObservableList<ProdottoConQuantita>) prodottiOrdinatiData);
+			ordineTabella.setItems(prodottiInOrdine);
 		} catch (Exception e) {
 			// dispatcher.renderError(e);
 		}
@@ -224,6 +231,10 @@ public class OrdineController
 
 	@FXML
 	private void confermaOrdine(ActionEvent event) {
+		if(this.prodottiInOrdine.isEmpty()) {
+			this.errore.setVisible(true);
+			return;
+		}
 		this.utente.getOrdini().add(this.ordine);
 		if (this.gestore != null) {
 			this.gestore.getOrdini().add(ordine);

@@ -108,4 +108,7 @@ public class Ordine implements Comparable<Ordine> {
 		listProdotti.add(prodotto);
 		return true;
 	}
+	public boolean rimuoviProdottoRichiesto(ProdottoConQuantita prodotto) {
+		return this.listProdotti.remove(prodotto);
+	}
 }
