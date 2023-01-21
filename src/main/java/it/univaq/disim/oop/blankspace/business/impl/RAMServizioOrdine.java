@@ -12,7 +12,7 @@ public class RAMServizioOrdine implements ServizioOrdine {
 
 	private Map<Integer, Ordine> ordini = new HashMap<>();
 
-	private static int id = 0;
+	private static int id = 1;
 
 	@Override
 	public Ordine creaOrdine(Ordine ordine) {

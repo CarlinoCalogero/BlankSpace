@@ -43,7 +43,7 @@ public class AggiungiProdottoOrdineController
 	private Label negozio;
 	
 	@FXML
-	private TextArea descrizione;
+	private Label descrizione;
 	
 	@FXML
 	private TextField quantita;
@@ -64,7 +64,7 @@ public class AggiungiProdottoOrdineController
 		this.ordine = dati.getDato3();
 		// Prendo il prodotto
 		this.prodotto = dati.getDato4();
-		this.descrizione.setText(prodotto.getDescrizione());
+		this.descrizione.setText(descrizione.getText() + prodotto.getDescrizione());
 		this.nomeProdotto.setText(prodotto.getNome());
 		this.negozio.setText(prodotto.getNegozio().toString());
 		this.categoria.setText(prodotto.getCategoria().toString());

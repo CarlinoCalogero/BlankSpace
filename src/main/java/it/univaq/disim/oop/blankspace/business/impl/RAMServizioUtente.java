@@ -1,6 +1,7 @@
 package it.univaq.disim.oop.blankspace.business.impl;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,16 +20,13 @@ public class RAMServizioUtente implements ServizioUtente {
 
 	public RAMServizioUtente() {
 		GestoreSistema gs = new GestoreSistema("admin", "admin");
-		Persona ut1 = new Utente(id, "Mikael", "Pikkirilli", LocalDate.now(), "mikael@pik.it", "0000000000", "mik",
-				"void");
-		Persona ut2 = new Utente(id, "Amico Immaginario", "Mikki", LocalDate.now(), "mikki@pik.it", "0000000000",
-				"mikki", "void");
-		Persona glr1 = new GestoreLuogoDiRitrovo("Calogero", "Carlino", LocalDate.now(), "calogero@carlino.gov",
-				"1111111111", "calcarl", "BlastBar", "void");
-		Persona ut3 = new Utente(id, "a", "a", LocalDate.now(), "a", "0000000000", "a", "void");
-		utenti.put(id++, ut1);
-		utenti.put(id++, ut2);
-		utenti.put(id++, ut3);
+		Persona glr1 = new GestoreLuogoDiRitrovo("Calogero", "Carlino", LocalDate.now(), "calogero@carlino.gov","0861997453", "calcarl", "BlastBar", "Piazza Romana");
+		Persona luca = new Utente(id, "Luca Francesco", "Macera", LocalDate.of(2002, Month.JULY, 29), "lucafrancesco.macera@student.univaq.it", "3414457881", "lucamf", "Via Monte dei Paschi");
+		Persona calogero = new Utente(id, "Calogero", "Carlino", LocalDate.of(2001, Month.SEPTEMBER, 11), "calogero.carlino@student.univaq.it", "3326676810", "calo", "Via Venezia");
+		Persona michael = new Utente(id, "Michael", "Piccirilli", LocalDate.of(2002, Month.OCTOBER, 18), "michael.piccirilli@student.univaq.it", "3384921992", "mik", "Via Giovanni di Vincenzo");
+		utenti.put(id++, luca);
+		utenti.put(id++, calogero);
+		utenti.put(id++, michael);
 		utenti.put(id++, glr1);
 		admins.put(idAdmins++, gs);
 	}
