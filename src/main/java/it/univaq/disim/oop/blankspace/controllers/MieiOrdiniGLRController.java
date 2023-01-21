@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
-import it.univaq.disim.oop.blankspace.business.ServizioUtente;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
@@ -35,8 +34,7 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 	private BusinessFactory factory = BusinessFactory.getImplementation();
 	private ViewDispacher dispatcher = ViewDispacher.getInstance();
 	private ServizioOrdine servizioOrdine = factory.getServizioOrdine();
-	private ServizioUtente servizioUtenti = factory.getServizioUtente();
-
+	private ObservableList<Ordine> ordiniData = FXCollections.emptyObservableList();
 	private GestoreLuogoDiRitrovo glr;
 	@FXML
 	private Label dataEtichetta; // XD
@@ -107,6 +105,8 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 				param.getValue().getUtente().getOrdini().remove(param.getValue());
 				this.glr.getOrdini().remove(param.getValue());
 				servizioOrdine.cancellaOrdine(param.getValue().getId());
+				this.ordiniData = FXCollections.observableArrayList(this.glr.getOrdini());
+				this.ordiniTabella.setItems(ordiniData);
 			});
 			return new SimpleObjectProperty<Button>(button);
 		});
@@ -115,8 +115,8 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 	@Override
 	public void initializeData(GestoreLuogoDiRitrovo glr) {
 		this.glr = glr;
-		ObservableList<Ordine> ordiniData = FXCollections.observableArrayList(glr.getOrdini());
-		ordiniTabella.setItems((ObservableList<Ordine>) ordiniData);
+		this.ordiniData = FXCollections.observableArrayList(glr.getOrdini());
+		ordiniTabella.setItems(ordiniData);
 	}
 
 	@FXML
@@ -126,7 +126,7 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 
 	@FXML
 	private void esci() {
-		System.out.println("Facendo il logout...");
+		dispatcher.renderVista("LogIn", null);
 	}
 
 	@FXML

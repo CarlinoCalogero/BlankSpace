@@ -77,7 +77,6 @@
                   <TableColumn fx:id="indirizzoColonna" prefWidth="399.2000427246094" text="Indirizzo" />
                   <TableColumn fx:id="dataColonna" prefWidth="399.2000427246094" text="Data" />
                   <TableColumn fx:id="modificaColonna" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" />
-                  <TableColumn fx:id="dettagliColonna" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" />
                   <TableColumn fx:id="annullaColonna" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" />
               </columns>
                <columnResizePolicy>

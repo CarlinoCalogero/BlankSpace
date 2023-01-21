@@ -10,7 +10,6 @@ import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.StatoOrdine;
 import it.univaq.disim.oop.blankspace.domain.Utente;
@@ -19,6 +18,7 @@ import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -60,9 +60,6 @@ public class MieiOrdiniController
 	private TableColumn<Ordine, LocalDate> dataColonna;
 
 	@FXML
-	private TableColumn<Ordine, Button> dettagliColonna;
-
-	@FXML
 	private TableColumn<Ordine, String> indirizzoColonna;
 
 	@FXML
@@ -81,7 +78,7 @@ public class MieiOrdiniController
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		nOrdineColonna.setStyle("-fx-alignment: CENTER;");
 		nOrdineColonna.setCellValueFactory(new PropertyValueFactory<Ordine, Integer>("id"));
 		statoColonna.setCellValueFactory(new PropertyValueFactory<Ordine, StatoOrdine>("stato"));
@@ -104,19 +101,19 @@ public class MieiOrdiniController
 		modificaColonna.setStyle("-fx-alignment: CENTER;");
 		modificaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Modifica");
-			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
-			return new SimpleObjectProperty<Button>(button);
-		});
-		dettagliColonna.setStyle("-fx-alignment: CENTER;");
-		dettagliColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
-			final Button button = new Button("Dettagli");
-			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
+			button.setStyle(
+					"-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
+			button.setOnAction((ActionEvent e) -> {
+				dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(
+						this.utente, this.glr, param.getValue(), null));
+			});
 			return new SimpleObjectProperty<Button>(button);
 		});
 		annullaColonna.setStyle("-fx-alignment: CENTER;");
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
-			button.setStyle("-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
+			button.setStyle(
+					"-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
 			button.setOnAction(e -> {
 				servizioOrdine.cancellaOrdine(param.getValue().getId());
 				utente.getOrdini().remove(param.getValue());
@@ -131,14 +128,14 @@ public class MieiOrdiniController
 		ObservableList<Ordine> ordiniData;
 
 		if (wrapper.getDato2() != null) { // sono un gestore di luogo di ritrovo
-			
+
 			this.glr = wrapper.getDato2();
 			ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromGLR(glr).values());
-		} else { //sono un utente
+		} else { // sono un utente
 			this.utente = wrapper.getDato1();
 			ordiniData = FXCollections.observableArrayList(servizioOrdine.getOrdiniFromUtente(utente).values());
 		}
-		
+
 		ordiniTabella.setItems((ObservableList<Ordine>) ordiniData);
 	}
 
