@@ -1,15 +1,10 @@
 package it.univaq.disim.oop.blankspace.domain;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class Ordine implements Comparable<Ordine> {
-
-	// mancano i metodi per aggiungere prodotti nell'ordine ma li inserisco dopo
-	private Map<Integer, Prodotto> insiemeProdotti = new HashMap<>();
 
 	private Integer id;
 	private LocalDate dataOrdinazione;
@@ -22,7 +17,7 @@ public class Ordine implements Comparable<Ordine> {
 
 	}
 
-	public Ordine(Integer id ,LocalDate dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
+	public Ordine(Integer id, LocalDate dataOrdinazione, Double totaleSpeso, StatoOrdine stato) {
 		this.id = id;
 		this.dataOrdinazione = dataOrdinazione;
 		this.totaleSpeso = totaleSpeso;
@@ -69,14 +64,6 @@ public class Ordine implements Comparable<Ordine> {
 		this.stato = stato;
 	}
 
-	public Map<Integer, Prodotto> getInsiemeProdotti() {
-		return insiemeProdotti;
-	}
-
-	public void setInsiemeProdotti(Map<Integer, Prodotto> insiemeProdotti) {
-		this.insiemeProdotti = insiemeProdotti;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null | !(obj instanceof Ordine))
@@ -108,6 +95,7 @@ public class Ordine implements Comparable<Ordine> {
 		listProdotti.add(prodotto);
 		return true;
 	}
+
 	public boolean rimuoviProdottoRichiesto(ProdottoConQuantita prodotto) {
 		return this.listProdotti.remove(prodotto);
 	}

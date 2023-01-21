@@ -1,6 +1,6 @@
 package it.univaq.disim.oop.blankspace.domain;
 
-public class ProdottoConQuantita{
+public class ProdottoConQuantita {
 
 	private Prodotto prodotto;
 	private String quantità;

@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GestoreLuogoDiRitrovo extends Persona {
+
 	private String nomeLuogoDiRitrovo;
 	private String indirizzoLuogoDiRitrovo;
 	private Set<Ordine> ordini = new HashSet<>();
@@ -31,7 +32,6 @@ public class GestoreLuogoDiRitrovo extends Persona {
 	public void setIndirizzoLuogoDiRitrovo(String indirizzoLuogoDiRitrovo) {
 		this.indirizzoLuogoDiRitrovo = indirizzoLuogoDiRitrovo;
 	}
-	
 
 	public Set<Ordine> getOrdini() {
 		return ordini;

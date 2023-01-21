@@ -41,8 +41,9 @@ public class PacchettoProdotti {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj == null || !(obj instanceof PacchettoProdotti)) return false;
-		PacchettoProdotti pp = (PacchettoProdotti)obj;
+		if (obj == null || !(obj instanceof PacchettoProdotti))
+			return false;
+		PacchettoProdotti pp = (PacchettoProdotti) obj;
 		return this.insiemeProdotti.equals(pp.getInsiemeProdotti()) && this.nome.equals(pp.getNome());
 	}
 

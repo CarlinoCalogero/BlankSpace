@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Utente extends Persona {
+
 	private String residenza;
+	private ArrayList<PacchettoProdotti> pacchettiProdotti;
+	private Set<Ordine> ordini = new HashSet<>();
 
 	public String getResidenza() {
 		return residenza;
@@ -15,9 +18,6 @@ public class Utente extends Persona {
 	public void setResidenza(String residenza) {
 		this.residenza = residenza;
 	}
-
-	private ArrayList<PacchettoProdotti> pacchettiProdotti;
-	private Set<Ordine> ordini = new HashSet<>();
 
 	public Utente(String nome, String cognome, LocalDate dataNascita, String email, String telefono, String password,
 			String residenza) {
