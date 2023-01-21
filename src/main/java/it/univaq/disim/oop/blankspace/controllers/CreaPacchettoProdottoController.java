@@ -115,7 +115,6 @@ public class CreaPacchettoProdottoController
 
 		prodottoColonna.setCellValueFactory((CellDataFeatures<Prodotto, String> param) -> {
 			if (param.getValue() instanceof ProdottoRichiesto) {
-				ProdottoRichiesto pr = (ProdottoRichiesto) param.getValue();
 				return new SimpleObjectProperty<String>("Si");
 			} else
 				return new SimpleObjectProperty<String>("No");

@@ -118,7 +118,6 @@ public class OrdineController
 		prodottoColonna.setStyle("-fx-alignment: CENTER;");
 		prodottoColonna.setCellValueFactory((CellDataFeatures<ProdottoConQuantita, String> param) -> {
 			if (param.getValue().getProdotto() instanceof ProdottoRichiesto) {
-				ProdottoRichiesto pr = (ProdottoRichiesto) param.getValue().getProdotto();
 				return new SimpleObjectProperty<String>("Si");
 			} else
 				return new SimpleObjectProperty<String>("No");

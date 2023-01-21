@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import it.univaq.disim.oop.blankspace.domain.GestoreLuogoDiRitrovo;
 import it.univaq.disim.oop.blankspace.domain.Ordine;
-import it.univaq.disim.oop.blankspace.domain.Persona;
 import it.univaq.disim.oop.blankspace.domain.Prodotto;
 import it.univaq.disim.oop.blankspace.domain.ProdottoRichiesto;
 import it.univaq.disim.oop.blankspace.domain.Utente;

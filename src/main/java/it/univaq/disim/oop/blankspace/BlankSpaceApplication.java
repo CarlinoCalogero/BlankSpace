@@ -2,9 +2,6 @@ package it.univaq.disim.oop.blankspace;
 
 import it.univaq.disim.oop.blankspace.viste.ViewDispacher;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class BlankSpaceApplication extends Application {
