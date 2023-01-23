@@ -19,6 +19,9 @@ public class AreaPacchettiController implements Initializable, DataInitalizable<
 
 	@FXML
 	private Button logoutButton;
+	
+	@FXML 
+	private Button indietroBottone;
 
 	@FXML
 	private ImageView creaPacchettoImageView;
@@ -46,6 +49,11 @@ public class AreaPacchettiController implements Initializable, DataInitalizable<
 	public void visualizzaIMieiPacchettiAction() {
 		dispatcher.renderVista("MieiPacchettiProdotti",
 				new WrapperInterVista<Persona, Object, Object, Object>(persona, null, null, null));
+	}
+	
+	@FXML
+	private void indietro() {
+		dispatcher.renderVista("Home", persona);
 	}
 
 }

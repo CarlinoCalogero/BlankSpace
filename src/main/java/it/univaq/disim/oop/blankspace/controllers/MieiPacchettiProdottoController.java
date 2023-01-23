@@ -53,7 +53,7 @@ public class MieiPacchettiProdottoController
 
 	@FXML
 	private TableColumn<PacchettoProdotti, String> nomeTableColumn;
-	
+
 	@FXML
 	private TableColumn<PacchettoProdotti, Button> ordinaColonna;
 
@@ -62,8 +62,10 @@ public class MieiPacchettiProdottoController
 
 		nomeTableColumn.setCellValueFactory(new PropertyValueFactory<PacchettoProdotti, String>("nome"));
 
+		apriButtonTableColumn.setStyle("-fx-alignment: CENTER;");
 		apriButtonTableColumn.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Apri");
+			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
 			button.setOnAction((ActionEvent e) -> {
 				dispatcher.renderVista("CreaPacchettoProdotto",
 						new WrapperInterVista<Utente, PacchettoProdotti, Object, Object>(utente, param.getValue(), null,
@@ -72,9 +74,11 @@ public class MieiPacchettiProdottoController
 
 			return new SimpleObjectProperty<Button>(button);
 		});
-
+		
+		eliminaButtonTableColumn.setStyle("-fx-alignment: CENTER;");
 		eliminaButtonTableColumn.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Elimina");
+			button.setStyle("-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
 			button.setOnAction((ActionEvent e) -> {
 				this.utente.removePacchettoProdotti(param.getValue());
 				servizioUtente.aggiornaUtente(this.utente);
@@ -84,20 +88,23 @@ public class MieiPacchettiProdottoController
 
 			return new SimpleObjectProperty<Button>(button);
 		});
-		
+
+		ordinaColonna.setStyle("-fx-alignment: CENTER;");
 		ordinaColonna.setCellValueFactory((CellDataFeatures<PacchettoProdotti, Button> param) -> {
 			final Button button = new Button("Ordina");
+			button.setStyle("-fx-background-color:#bacad7; -fx-background-radius: 15px; -fx-text-fill: #5f6569; -fx-font-weight: bold;");
 			button.setOnAction((ActionEvent e) -> {
-				Ordine ordine = servizioOrdine.creaOrdine(new Ordine()); 
+				Ordine ordine = servizioOrdine.creaOrdine(new Ordine());
 				ordine.setDataOrdinazione(LocalDate.now());
 				ordine.setStato(StatoOrdine.ATTIVO);
 				ordine.setUtente(utente);
-				for(Prodotto prodotto : param.getValue().getInsiemeProdotti()) {
+				for (Prodotto prodotto : param.getValue().getInsiemeProdotti()) {
 					ordine.aggiungiProdottoRichiesto(new ProdottoConQuantita(prodotto, "1"));
 					ordine.setTotaleSpeso(ordine.getTotaleSpeso() + prodotto.getPrezzo());
 				}
 				servizioOrdine.aggiornaOrdine(ordine);
-				dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo,Ordine,Prodotto>(this.utente, null,ordine, null));
+				dispatcher.renderVista("Ordine", new WrapperInterVista<Utente, GestoreLuogoDiRitrovo, Ordine, Prodotto>(
+						this.utente, null, ordine, null));
 			});
 
 			return new SimpleObjectProperty<Button>(button);

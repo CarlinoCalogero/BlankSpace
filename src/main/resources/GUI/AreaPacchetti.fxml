@@ -12,41 +12,57 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.disim.oop.blankspace.controllers.AreaPacchettiController">
    <center>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox>
          <children>
-            <VBox alignment="CENTER" layoutX="302.0" layoutY="10.0">
+            <HBox alignment="CENTER" prefHeight="473.0" prefWidth="1034.0">
                <children>
-                  <ImageView fx:id="creaPacchettoImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#creaPacchettoAction" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/nuovoPacchetto.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Nuovo pacchetto" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="34.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="creaPacchettoImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#creaPacchettoAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/nuovoPacchetto.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="Nuovo pacchetto" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="40.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="iMieiPacchettiImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#visualizzaIMieiPacchettiAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icone/pacchetto.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="I miei pacchetti" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="377.0" layoutY="10.0">
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="iMieiPacchettiImageView" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#visualizzaIMieiPacchettiAction" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icone/pacchetto.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="299.0" text="I miei pacchetti" textAlignment="CENTER">
+                  <Button fx:id="indietroBottone" mnemonicParsing="false" onAction="#indietro" prefHeight="63.0" prefWidth="225.0" styleClass="filter-button" stylesheets="@../style/button.css" text="Indietro" textFill="#5f6569">
                      <font>
-                        <Font name="System Bold" size="34.0" />
+                        <Font size="25.0" />
                      </font>
-                  </Label>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </center>
    <top>
       <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="1034.0" BorderPane.alignment="CENTER">

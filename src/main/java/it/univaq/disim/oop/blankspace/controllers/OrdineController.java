@@ -3,6 +3,7 @@ package it.univaq.disim.oop.blankspace.controllers;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ProdottiService;
@@ -163,7 +164,6 @@ public class OrdineController
 						.observableArrayList(this.ordine.getListProdotti());
 				this.ordineTabella.setItems(prodottiInOrdine);
 			});
-			//System.out.println("Ciao"+this.ordine.getListProdotti());
 			return new SimpleObjectProperty<Button>(button);
 		});
 
@@ -193,7 +193,6 @@ public class OrdineController
 		try {
 			ObservableList<Prodotto> prodottiData = FXCollections.observableArrayList(prodottiService.getAllProdotti());
 			catalogoTabella.setItems((ObservableList<Prodotto>) prodottiData);
-
 			this.prodottiInOrdine = FXCollections
 					.observableArrayList(this.ordine.getListProdotti());
 			ordineTabella.setItems(prodottiInOrdine);
@@ -234,7 +233,10 @@ public class OrdineController
 			this.errore.setVisible(true);
 			return;
 		}
-		this.utente.getOrdini().add(this.ordine);
+		Set<Ordine> ordini = this.utente.getOrdini();
+		ordini.add(this.ordine);
+		this.utente.setOrdini(ordini);
+		
 		if (this.gestore != null) {
 			this.gestore.getOrdini().add(ordine);
 			dispatcher.renderVista("HomeGLR", this.gestore);

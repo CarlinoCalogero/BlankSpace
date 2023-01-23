@@ -51,7 +51,7 @@ public class Utente extends Persona {
 	}
 
 	public Set<Ordine> getOrdini() {
-		return ordini;
+		return new HashSet<Ordine>(ordini);
 	}
 
 	public void setOrdini(Set<Ordine> ordini) {

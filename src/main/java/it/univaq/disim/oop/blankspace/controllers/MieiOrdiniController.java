@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
@@ -116,7 +117,9 @@ public class MieiOrdiniController
 					"-fx-background-color: red; -fx-background-radius: 15px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
 			button.setOnAction(e -> {
 				servizioOrdine.cancellaOrdine(param.getValue().getId());
-				utente.getOrdini().remove(param.getValue());
+				Set<Ordine> ordini = utente.getOrdini();
+				ordini.remove(param.getValue());
+				utente.setOrdini(ordini);
 				dispatcher.renderVista("Home", utente);
 			});
 			return new SimpleObjectProperty<Button>(button);

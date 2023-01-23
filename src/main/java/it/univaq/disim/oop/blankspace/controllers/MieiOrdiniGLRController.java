@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import it.univaq.disim.oop.blankspace.business.BusinessFactory;
 import it.univaq.disim.oop.blankspace.business.ServizioOrdine;
@@ -53,20 +54,26 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 
 	@FXML
 	private TableColumn<Ordine, String> utenteColonna;
+	
 	@FXML
 	private TableColumn<Ordine, StatoOrdine> statoColonna;
+	
 	@FXML
 	private TableColumn<Ordine, String> totaleColonna;
+	
 	@FXML
 	private TableColumn<Ordine, LocalDate> dataColonna;
 
 	@FXML
 	private TableColumn<Ordine, Integer> nOrdineColonna;
+	
 	@FXML
 	private TableColumn<Ordine, Button> modificaColonna;
+	
 	@FXML
 	private TableColumn<Ordine, Button> annullaColonna;
 
+	@FXML
 	private TextField barraDiRicerca;
 
 	@Override
@@ -102,7 +109,9 @@ public class MieiOrdiniGLRController implements Initializable, DataInitalizable<
 		annullaColonna.setCellValueFactory((CellDataFeatures<Ordine, Button> param) -> {
 			final Button button = new Button("Annulla");
 			button.setOnAction(e -> {
-				param.getValue().getUtente().getOrdini().remove(param.getValue());
+				Set<Ordine> ordini = param.getValue().getUtente().getOrdini();
+				ordini.remove(param.getValue());
+				param.getValue().getUtente().setOrdini(ordini);
 				this.glr.getOrdini().remove(param.getValue());
 				servizioOrdine.cancellaOrdine(param.getValue().getId());
 				this.ordiniData = FXCollections.observableArrayList(this.glr.getOrdini());
